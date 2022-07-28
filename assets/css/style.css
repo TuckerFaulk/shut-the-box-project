@@ -91,8 +91,16 @@ button {
     background-color: gray;
 }
 
+.roll:hover {
+    background-color: red;
+}
+
 .reset {
     background-color: red;
+}
+
+.reset:hover {
+    background-color: yellow;
 }
 
 /* How to Play Section */
