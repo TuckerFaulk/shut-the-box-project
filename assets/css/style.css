@@ -9,9 +9,8 @@
 .heading {
     height: 50px;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
 }
 
 .logo {
@@ -27,16 +26,38 @@
 .game-area {
     height: 60vh;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
 }
 
 .game-board {
     background-color: green;
     height: 500px;
-    width: 70%;
-    margin: solid 1px black;
+    width: 60%;
+    border: solid 5px black;
+    border-radius: 10px;
 }
 
 /* Number Blocks */
+
+.number-block-area {
+    height: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.number-block {
+    background-color: bisque;
+    border: solid 3px black;
+    padding: 80px 30px;
+    font-size: 300%;
+    display: inline;
+    position: relative;
+}
+
+.fa-regular {
+    height: 50px;
+    width: 50px;
+    color: black;
+}
