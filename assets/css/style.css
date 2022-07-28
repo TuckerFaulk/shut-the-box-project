@@ -7,10 +7,11 @@
 /* Heading and Logo */
 
 .heading {
-    height: 50px;
+    height: 75px;
     width: 100%;
     display: grid;
     place-items: center;
+    background-color: gray;
 }
 
 .logo {
@@ -18,7 +19,7 @@
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
-    color: blue;
+    color: black;
 }
 
 /* Game Area */
@@ -63,7 +64,7 @@
 
 /* Dice Icons */
 
-i {
+#dice1, #dice2 {
     font-size: 100px;
     color: white;
     position: relative;
@@ -98,4 +99,21 @@ button {
 
 .how-to-play {
     text-align: center;
+    padding: 10px;
+    font-size: large;
+}
+
+/* Footer */
+
+footer {
+    height: 75px;
+    width: 100%;
+    text-align: center;
+    background-color: gray;
+    font-size: large;
+    font-weight: bold;
+}
+
+.footer {
+    padding-top: 15px;
 }
