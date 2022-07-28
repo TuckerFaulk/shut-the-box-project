@@ -56,8 +56,7 @@
     position: relative;
 }
 
-.fa-regular {
-    height: 50px;
-    width: 50px;
-    color: black;
+i {
+    font-size: 100px;
+    color: white;
 }
