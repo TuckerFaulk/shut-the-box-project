@@ -18,6 +18,7 @@
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
+    color: blue;
 }
 
 /* Game Area */
@@ -56,7 +57,45 @@
     position: relative;
 }
 
+.invisible {
+    visibility: hidden;
+}
+
+/* Dice Icons */
+
 i {
     font-size: 100px;
     color: white;
+    position: relative;
+    left: 10%;
+    top: 15%;
+    margin-right: 10%;
+}
+
+/* Buttons */
+
+button {
+    padding: 25px 50px;
+    font-weight: bold;
+    color: antiquewhite;
+    float: right;
+    position: relative;
+    top: 20%;
+    right: 10%;
+    margin-left: 10%;
+    border-radius: 5px;
+}
+
+.roll {
+    background-color: gray;
+}
+
+.reset {
+    background-color: red;
+}
+
+/* How to Play Section */
+
+.how-to-play {
+    text-align: center;
 }

@@ -16,9 +16,7 @@
 </head>
 <body>
     <div class="heading">
-        <a href="index.html">
-            <h1 class="logo">Shut the Box</h1>
-        </a>
+        <h1 class="logo">Shut the Box</h1>
     </div>
 
     <div class="game-area">
@@ -35,17 +33,40 @@
             <div class="number-block" id="num9">9</div>
             </div>
 
-            <i class="fa-solid fa-dice-one"></i>
-            <i class="fa-solid fa-dice-one"></i>
+            <i class="fa-solid fa-dice-one" id="dice1"></i>
+            <i class="fa-solid fa-dice-one" id="dice2"></i>
 
-            <button class="Roll">Roll</button>
-            <button class="Reset">Reset</button>
+            <button class="reset">Reset</button>
+            <button class="roll">Roll</button>
         </div>
     </div>
 
-    <div>
+    <div class="how-to-play">
+
+<!-- Rules for the game where found at https://gathertogethergames.com/shut-the-box -->
+
         <h2>How to play?</h2>
-        <p>To detail the rules on how to play.</p>
+        <h3>Objective</h3>
+        <p>The object of the game is to shut, or lower, as many number tiles as possible during your turn.</p>
+
+        <h3>Game Play</h3>
+        <p>The game begins with all the number tiles in the up position. The player will roll two dice and add them up. 
+            The player will then lower an equal amount of tiles.</p>
+            <br>
+        <p>For example, if the player rolls a total of 9, they can lower any tiles equal to 9:</p>
+
+        <ul>
+            <li>9</li>
+            <li>8 and 1</li>
+            <li>7 and 2</li>
+            <li>6 and 3</li>
+            <li>5 and 4</li>
+            <li>6, 2, and 1</li>
+            <li>4, 3, and 2</li>
+        </ul>
+
+        <p>The player continues to roll as long as they have an equal number of tiles to lower. 
+            When no more tiles can be lowered, the turn is over and the game is reset.</p>
     </div>
 
     <script src="assets/js/script.js"></script>
