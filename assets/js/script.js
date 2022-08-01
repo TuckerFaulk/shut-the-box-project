@@ -1,7 +1,8 @@
 // Global variables declared
 
+let roll = document.getElementById('roll');
 let newDiceTotal = "";
-let numberBlock = document.getElementsByClassName("number-block");
+const numberBlock = document.querySelectorAll(".number-block");
 let numberBlockTotal = "";
 let numberBlockSelected = "";
 
@@ -13,12 +14,10 @@ document.addEventListener("DOMContentLoaded", function() {
     allowRollDice();
 });
 
-
 /**
  * Creates the event listeners for allowing the user to roll the dice
  */
 function allowRollDice() {
-    let roll = document.getElementById('roll');
     roll.addEventListener('click', rollDice);
 }
 
@@ -28,7 +27,9 @@ function allowRollDice() {
  * Finally adds the value of both dice together
  */
 function rollDice(event) {
-    
+
+    roll.removeEventListener('click', rollDice);
+
     let newDice1 = Math.floor(Math.random() * 6) + 1;
     let newDice2 = Math.floor(Math.random() * 6) + 1;
 
@@ -82,19 +83,14 @@ function rollDice(event) {
  */
 function selectNumberBlock() {
 
-    let num1 = document.getElementById('num1');
-    num1.addEventListener('click', function() {
-       numberBlockSelected = num1.innerHTML;
-       console.log("You have selected number block:" + numberBlockSelected);
-       subtractNumberBlock();
-       });
+    numberBlock.forEach(number => {
+        number.addEventListener('click', function() {
+            numberBlockSelected = number.innerHTML;
+            console.log("You have selected number block:" + numberBlockSelected);
+            subtractNumberBlock();
+        });
+      });
 
-    let num2 = document.getElementById('num2');
-    num2.addEventListener('click', function() {
-       numberBlockSelected = num2.innerHTML;
-       console.log("You have selected number block:" + numberBlockSelected);
-       subtractNumberBlock();
-       });
 }
 
 /**
@@ -179,7 +175,7 @@ function resetGame() {
 
     console.log("resetGame() called!")
 
-    let numberBlockArea = document.getElementsByClassName("number-block-area")[0].innerhtml
+    let numberBlockArea = document.getElementsByClassName("number-block-area")[0].innerhtml;
 
     numberBlockArea = `<div class="number-block" id="num1">1</div>
     <div class="number-block" id="num2">2</div>
