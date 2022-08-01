@@ -81,6 +81,13 @@ function selectNumberBlock() {
        console.log(numberBlockSelected);
        subtractNumberBlock();
        });
+
+    let num2 = document.getElementById('num2');
+    num2.addEventListener('click', function() {
+       numberBlockSelected = num2.innerHTML;
+       console.log(numberBlockSelected);
+       subtractNumberBlock();
+       });
 }
 
 /**
@@ -102,25 +109,7 @@ function subtractNumberBlock(event) {
 
 
     // Make the selected Number Block Invisible
-    if (numberBlockSelected === 1) {
-        numberBlock[0].outerHTML = `<div class="number-block invisible" id="num1">0</div>`;
-    } else if (numberBlockSelected === 2) {
-        numberBlock[1].outerHTML = `<div class="number-block invisible" id="num2">0</div>`;
-    } else if (numberBlockSelected === 3) {
-        numberBlock[2].outerHTML = `<div class="number-block invisible" id="num3">0</div>`;
-    } else if (numberBlockSelected === 4) {
-        numberBlock[3].outerHTML = `<div class="number-block invisible" id="num4">0</div>`;
-    } else if (numberBlockSelected === 5) {
-        numberBlock[4].outerHTML = `<div class="number-block invisible" id="num5">0</div>`;
-    } else if (numberBlockSelected === 6) {
-        numberBlock[5].outerHTML = `<div class="number-block invisible" id="num6">0</div>`;
-    } else if (numberBlockSelected === 7) {
-        numberBlock[6].outerHTML = `<div class="number-block invisible" id="num7">0</div>`;
-    } else if (numberBlockSelected === 8) {
-        numberBlock[7].outerHTML = `<div class="number-block invisible" id="num8">0</div>`;
-    } else if (numberBlockSelected === 9) {
-        numberBlock[8].outerHTML = `<div class="number-block invisible" id="num9">0</div>`;
-    };
+    numberBlock[--numberBlockSelected].outerHTML = `<div class="number-block invisible" id="num1">0</div>`;
 
     checkGame();
 }
@@ -133,9 +122,10 @@ function checkGame() {
     console.log("checkGame() called!")
 
     // Checks whether the total value of the dice is higher than the total value of the remaining number blocks
+    numberBlockTotal = 0;
+
     for (let i = 0; i < 9; i++){
-        numberBlockTotal = "";
-        numberBlockTotal = numberBlockTotal + numberBlock[i].innerHTML;
+        numberBlockTotal = numberBlockTotal + parseInt(numberBlock[i].innerHTML);
     }
 
     console.log("numberBlockTotal = " + numberBlockTotal);
