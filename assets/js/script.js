@@ -5,27 +5,15 @@ let dice2 = document.getElementById("dice2");
 let newDiceTotal = "";
 let numberBlockTotal = 0;
 
+document.addEventListener("DOMContentLoaded", allowRollDice);
 
 /**
- * Sequence of events explained:
- * rollDice() called when the "Roll" button clicked
- *      - Updates the dice icons in html to a random new value (1-6)
- *      - Finally adds the value of both dice together
- * subtractNumberBlock() called when a number block is clicked
+ * Creates the event listeners for allowing the user to roll the dice
  */
-
-
-
-
-/**
- * The main game "loop", called when the script is first loaded
- * Checks whether the total value of the dice rolled is higher than the total value of the remaining number blocks
- * Lets the game continue or calls gameWon() / gameBust()
- */
-function runGame() {
-    
+function allowRollDice() {
+    let roll = document.getElementById('roll');
+    roll.addEventListener('click', rollDice);
 }
-
 
 /**
  * Roll of both dice, called when the "Roll" button clicked
@@ -72,18 +60,62 @@ function rollDice(event) {
     console.log(document.getElementById("dice2").outerHTML);
 
     newDiceTotal = newDice1 + newDice2;
+
+    console.log(newDiceTotal); // Delete
+
+    // checkGame();
+}
+
+/**
+ * Creates the event listeners for allowing the user to remove a number block
+ */
+function selectNumberBlock() {
+    let num1 = document.getElementById('num1');
+    num1.addEventListener('click', function {
+       let numberBlockSelected = num1.innerHTML;
+       });
 }
 
 /**
  * Hides the number block and stores value ready for subtraction from the total value of both dice
  * Subtracts the value of the number block from the total value of both dice
  */
-function subtractNumberBlock() {
-    // retreives the value of the number block clicked: event listener required
-    // subtracts it from "newDiceTotal"
+function subtractNumberBlock(event) {
+
+    // subtracts it from "newDiceTotal" and numberBlockTotal
+    newDiceTotal = newDiceTotal - numberBlockSelected;
+    numberBlockTotal = numberBlockTotal - numberBlockSelected;
+    
+    // Make the selected Number Block Invisible
+    if (numberBlockSelected === 1) {
+        numberBlock[0].outerHTML = `<div class="number-block invisible" id="num1">0</div>`;
+    } else if (numberBlockSelected === 2) {
+        numberBlock[1].outerHTML = `<div class="number-block invisible" id="num2">0</div>`;
+    } else if (numberBlockSelected === 3) {
+        numberBlock[2].outerHTML = `<div class="number-block invisible" id="num3">0</div>`;
+    } else if (numberBlockSelected === 4) {
+        numberBlock[3].outerHTML = `<div class="number-block invisible" id="num4">0</div>`;
+    } else if (numberBlockSelected === 5) {
+        numberBlock[4].outerHTML = `<div class="number-block invisible" id="num5">0</div>`;
+    } else if (numberBlockSelected === 6) {
+        numberBlock[5].outerHTML = `<div class="number-block invisible" id="num6">0</div>`;
+    } else if (numberBlockSelected === 7) {
+        numberBlock[6].outerHTML = `<div class="number-block invisible" id="num7">0</div>`;
+    } else if (numberBlockSelected === 8) {
+        numberBlock[7].outerHTML = `<div class="number-block invisible" id="num8">0</div>`;
+    } else if (numberBlockSelected === 9) {
+        numberBlock[8].outerHTML = `<div class="number-block invisible" id="num9">0</div>`;
+    };
+
+    // checkGame();
 }
 
-function checkGameBust() {
+/**
+ * 
+ */
+function checkGame() {
+
+    // Checks whether the total value of the dice is higher than the total value of the remaining number blocks
     for (let i = 0; i < 9; i++){
         let numberBlock = document.getElementsByClassName("number-block")[i].innerHTML;
         numberBlockTotal = numberBlockTotal + parseInt(numberBlock);
@@ -92,14 +124,24 @@ function checkGameBust() {
     if (numberBlockTotal < newDiceTotal) {
         gameBust();
     }
-}
 
+    // Checks whether to allow number blocks to be selected: if "0" checks whether game is won
+    if (newDiceTotal > 0) {
+        selectNumberBlock();
+    } else if (newDiceTotal && numberBlockTotal === 0) { 
+        gameWon();
+    } else {
+        allowRollDice();
+    } 
+
+}
 
 /**
  * Alert raised to notify of game won (All number blocks have been used)
  */
 function gameWon() {
     alert("Congratulations!!! You have Shut the Box! Can you manage to complete is again?");
+    resetGame();
 }
 
 /**
@@ -108,6 +150,7 @@ function gameWon() {
  */
 function gameBust() {
     alert("You have gone bust! The total value of the dice rolled is higher than the total value of the remaining number blocks. Try again to see if you can Shut the Box!");
+    resetGame();
 }
 
 /**

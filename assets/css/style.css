@@ -87,19 +87,19 @@ button {
     border-radius: 5px;
 }
 
-.roll {
+#roll {
     background-color: gray;
 }
 
-.roll:hover {
+#roll:hover {
     background-color: red;
 }
 
-.reset {
+#reset {
     background-color: red;
 }
 
-.reset:hover {
+#reset:hover {
     background-color: yellow;
 }
 
