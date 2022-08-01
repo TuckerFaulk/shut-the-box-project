@@ -3,6 +3,7 @@
 let dice1 = document.getElementById("dice1");
 let dice2 = document.getElementById("dice2");
 let newDiceTotal = "";
+let numberBlockTotal = 0;
 
 
 /**
@@ -42,7 +43,7 @@ function rollDice(event) {
     if (newDice1 === 1) {
         dice1.outerHTML = `<i class="fa-solid fa-dice-one" id="dice1"></i>`;
     } else if (newDice1 === 2) {
-        dice1.outerHTML = `<i class="fa-solid fa-dice-two" id="dice1"></i>"`;
+        dice1.outerHTML = `<i class="fa-solid fa-dice-two" id="dice1"></i>`;
     } else if (newDice1 === 3) {
         dice1.outerHTML = `<i class="fa-solid fa-dice-three" id="dice1"></i>`;
     } else if (newDice1 === 4) {
@@ -56,7 +57,7 @@ function rollDice(event) {
     if (newDice2 === 1) {
         dice2.outerHTML = `<i class="fa-solid fa-dice-one" id="dice2"></i>`;
     } else if (newDice2 === 2) {
-        dice2.outerHTML = `<i class="fa-solid fa-dice-two" id="dice2"></i>"`;
+        dice2.outerHTML = `<i class="fa-solid fa-dice-two" id="dice2"></i>`;
     } else if (newDice2 === 3) {
         dice2.outerHTML = `<i class="fa-solid fa-dice-three" id="dice2"></i>`;
     } else if (newDice2 === 4) {
@@ -81,6 +82,18 @@ function subtractNumberBlock() {
     // retreives the value of the number block clicked: event listener required
     // subtracts it from "newDiceTotal"
 }
+
+function checkGameBust() {
+    for (let i = 0; i < 9; i++){
+        let numberBlock = document.getElementsByClassName("number-block")[i].innerHTML;
+        numberBlockTotal = numberBlockTotal + parseInt(numberBlock);
+    }
+    
+    if (numberBlockTotal < newDiceTotal) {
+        gameBust();
+    }
+}
+
 
 /**
  * Alert raised to notify of game won (All number blocks have been used)
