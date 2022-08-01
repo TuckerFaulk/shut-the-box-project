@@ -3,7 +3,9 @@
 let dice1 = document.getElementById("dice1");
 let dice2 = document.getElementById("dice2");
 let newDiceTotal = "";
-let numberBlockTotal = 0;
+let numberBlock = document.getElementsByClassName("number-block");
+let numberBlockTotal = "";
+let numberBlockSelected = "";
 
 document.addEventListener("DOMContentLoaded", allowRollDice);
 
@@ -63,16 +65,21 @@ function rollDice(event) {
 
     console.log(newDiceTotal); // Delete
 
-    // checkGame();
+    checkGame();
 }
 
 /**
  * Creates the event listeners for allowing the user to remove a number block
  */
 function selectNumberBlock() {
+
+    console.log("selectNumberBlock() called! Select a number block.")
+
     let num1 = document.getElementById('num1');
-    num1.addEventListener('click', function {
-       let numberBlockSelected = num1.innerHTML;
+    num1.addEventListener('click', function() {
+       numberBlockSelected = num1.innerHTML;
+       console.log(numberBlockSelected);
+       subtractNumberBlock();
        });
 }
 
@@ -82,10 +89,18 @@ function selectNumberBlock() {
  */
 function subtractNumberBlock(event) {
 
-    // subtracts it from "newDiceTotal" and numberBlockTotal
+    console.log("subtractNumberBlock() called!");
+    console.log("numberBlockTotal = " + numberBlockTotal);
+
+    // subtracts numberBlockSelected from newDiceTotal and numberBlockTotal
     newDiceTotal = newDiceTotal - numberBlockSelected;
     numberBlockTotal = numberBlockTotal - numberBlockSelected;
-    
+
+    console.log("numberBlockSelected = " + numberBlockSelected);
+    console.log("newDiceTotal = " + newDiceTotal);
+    console.log("numberBlockTotal = " + numberBlockTotal);
+
+
     // Make the selected Number Block Invisible
     if (numberBlockSelected === 1) {
         numberBlock[0].outerHTML = `<div class="number-block invisible" id="num1">0</div>`;
@@ -107,7 +122,7 @@ function subtractNumberBlock(event) {
         numberBlock[8].outerHTML = `<div class="number-block invisible" id="num9">0</div>`;
     };
 
-    // checkGame();
+    checkGame();
 }
 
 /**
@@ -115,12 +130,16 @@ function subtractNumberBlock(event) {
  */
 function checkGame() {
 
+    console.log("checkGame() called!")
+
     // Checks whether the total value of the dice is higher than the total value of the remaining number blocks
     for (let i = 0; i < 9; i++){
-        let numberBlock = document.getElementsByClassName("number-block")[i].innerHTML;
-        numberBlockTotal = numberBlockTotal + parseInt(numberBlock);
+        numberBlockTotal = "";
+        numberBlockTotal = numberBlockTotal + numberBlock[i].innerHTML;
     }
-    
+
+    console.log("numberBlockTotal = " + numberBlockTotal);
+
     if (numberBlockTotal < newDiceTotal) {
         gameBust();
     }
