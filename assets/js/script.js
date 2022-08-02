@@ -6,6 +6,9 @@ const numberBlock = document.querySelectorAll(".number-block");
 let numberBlockTotal = "";
 let numberBlockSelected = "";
 
+let num1 = document.getElementById('num1');
+let num7 = document.getElementById('num7');
+
 document.addEventListener("DOMContentLoaded", function() {
 
     let reset = document.getElementById('reset');
@@ -18,7 +21,9 @@ document.addEventListener("DOMContentLoaded", function() {
  * Creates the event listeners for allowing the user to roll the dice
  */
 function allowRollDice() {
+
     roll.addEventListener('click', rollDice);
+
 }
 
 /**
@@ -86,10 +91,16 @@ function selectNumberBlock() {
     numberBlock.forEach(number => {
         number.addEventListener('click', function() {
             numberBlockSelected = number.innerHTML;
-            console.log("You have selected number block:" + numberBlockSelected);
             subtractNumberBlock();
         });
       });
+
+    // for (let i = 0; i < 10; i++) {
+    //     numberBlock[i].addEventListener('click', function() {
+    //         numberBlockSelected = ++i;
+    //         subtractNumberBlock();
+    //     });
+    // }
 
 }
 
@@ -98,7 +109,7 @@ function selectNumberBlock() {
  * Subtracts the value of the number block from the total value of both dice
  */
 function subtractNumberBlock(event) {
-
+    
     console.log("subtractNumberBlock() called!");
     console.log("numberBlockTotal = " + numberBlockTotal);
 
@@ -122,7 +133,7 @@ function subtractNumberBlock(event) {
  */
 function checkGame() {
 
-    console.log("checkGame() called!")
+    console.log("checkGame() called!");
 
     // Checks whether the total value of the dice is higher than the total value of the remaining number blocks
     numberBlockTotal = 0;
@@ -143,7 +154,7 @@ function checkGame() {
         selectNumberBlock();
     } else if (newDiceTotal && numberBlockTotal === 0) { 
         gameWon();
-    } else {
+    } else if (newDiceTotal === 0){
         console.log("newDiceTotal is equal to 0: allowDiceRoll.");
         allowRollDice();
     } 
