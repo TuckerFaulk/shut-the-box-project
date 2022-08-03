@@ -115,32 +115,7 @@ button {
     background-color: red;
 }
 
-/* How to Play Section */
-
-.how-to-play {
-    text-align: center;
-    padding: 10px 0 30px 0;
-    font-size: large;
-    position: relative;
-    bottom: 100px;
-}
-
-/* Footer */
-
-footer {
-    height: 75px;
-    width: 100%;
-    text-align: center;
-    background-color: gray;
-    font-size: large;
-    font-weight: bold;
-}
-
-.footer {
-    padding-top: 15px;
-}
-
-/* Message Board */
+/* Message Board - Game Bust and Won */
 
 .message-board {
     height: 200px;
@@ -148,11 +123,9 @@ footer {
     background-color: rgba(128, 128, 128, 0.521);
     display: grid;
     place-items: center;
-    position: relative;
-    bottom: 300px;
+    position: absolute;
+    bottom: 375px;
 }
-
-/* Game bust */
 
 .game-bust {
     background-color: white;
@@ -173,4 +146,27 @@ footer {
     place-items: center;
     position: absolute;
     padding: 20px;
+}
+
+/* How to Play Section */
+
+.how-to-play {
+    text-align: center;
+    padding: 10px 0 30px 0;
+    font-size: large;
+}
+
+/* Footer */
+
+footer {
+    height: 75px;
+    width: 100%;
+    text-align: center;
+    background-color: gray;
+    font-size: large;
+    font-weight: bold;
+}
+
+.footer {
+    padding-top: 15px;
 }

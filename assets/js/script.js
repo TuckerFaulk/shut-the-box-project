@@ -102,7 +102,7 @@ function rollDice(event) {
     console.log("checkGame() called!"); // To be deleted
     console.log("numberBlockTotal = " + numberBlockTotal); // To be deleted
 
-    if (newDiceTotal && numberBlockTotal === 0) { 
+    if (newDiceTotal === 0 && numberBlockTotal === 0) { 
         gameWon();
         return;
     } else if (newDiceTotal > numberBlockTotal) {
@@ -126,6 +126,9 @@ function rollDice(event) {
 
 }
 
+/**
+ * 
+ */
 function checkNumberBlockArray() {
 
 let numbers = [];
@@ -217,7 +220,7 @@ function subtractNumberBlock(event) {
 }
 
 /**
- * Alert raised to notify of game won (All number blocks have been used)
+ * Alert raised to notify of game won (all number blocks have been used)
  */
 function gameWon() {
     
@@ -253,7 +256,7 @@ function gameBust() {
 
 /**
  * Resets the game by refreshing the page.
- * Called when the "reset" button is clicked or after the gamewon()/gameBust() alert boxes are closed.
+ * Called when the "reset" button is clicked or after the gamewon()/gameBust() "try again" buttons are clicked.
  */
 function resetGame() {
 
