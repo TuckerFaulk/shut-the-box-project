@@ -83,6 +83,36 @@ function rollDice(event) {
 }
 
 /**
+ * 
+ */
+ function checkGame() {
+
+    console.log("checkGame() called!"); // To be deleted
+
+    numberBlockTotal = 0; // Resets the numberBlockTotal to "0" to prevent accumulation from the previous sum
+
+    // Calculates the new numberBlockTotal as a numberBlock may have been removed
+    for (let i = 0; i < 9; i++){
+        numberBlockTotal = numberBlockTotal + parseInt(numberBlock[i].innerHTML);
+    }
+
+    console.log("numberBlockTotal = " + numberBlockTotal); // To be deleted
+
+    if (newDiceTotal && numberBlockTotal === 0) { 
+        gameWon();
+    } else if (newDiceTotal > numberBlockTotal) {
+        gameBust(); // Checks whether the total value of the dice is higher than the total value of the remaining number blocks
+    } else if (newDiceTotal === 0){
+        console.log("newDiceTotal is equal to 0: allowDiceRoll.");
+        allowRollDice();
+    } else {
+        console.log("newDiceTotal is greater than 0: selectNumberBlock.");
+        selectNumberBlock();
+    }
+
+}
+
+/**
  * Creates the event listeners for allowing the user to remove a number block
  * It only adds event listeners to values <= newDiceTotal
  */
@@ -126,39 +156,6 @@ function subtractNumberBlock(event) {
     numberBlock[--numberBlockSelected].outerHTML = `<div class="number-block invisible" id="num1">0</div>`;
 
     checkGame();
-}
-
-/**
- * 
- */
-function checkGame() {
-
-    console.log("checkGame() called!");
-
-    // Checks whether the total value of the dice is higher than the total value of the remaining number blocks
-    numberBlockTotal = 0;
-
-    for (let i = 0; i < 9; i++){
-        numberBlockTotal = numberBlockTotal + parseInt(numberBlock[i].innerHTML);
-    }
-
-    console.log("numberBlockTotal = " + numberBlockTotal);
-
-    if (numberBlockTotal < newDiceTotal) {
-        gameBust();
-    }
-
-    // Checks whether to allow number blocks to be selected: if "0" checks whether game is won
-    if (newDiceTotal > 0) {
-        console.log("newDiceTotal is greater than 0: selectNumberBlock.");
-        selectNumberBlock();
-    } else if (newDiceTotal && numberBlockTotal === 0) { 
-        gameWon();
-    } else if (newDiceTotal === 0){
-        console.log("newDiceTotal is equal to 0: allowDiceRoll.");
-        allowRollDice();
-    } 
-
 }
 
 /**
