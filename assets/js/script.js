@@ -5,6 +5,7 @@ let newDiceTotal = "";
 const numberBlock = document.querySelectorAll(".number-block");
 let numberBlockTotal = 45;
 let numberBlockSelected = "";
+var combi = [];
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -103,15 +104,56 @@ function rollDice(event) {
 
     if (newDiceTotal && numberBlockTotal === 0) { 
         gameWon();
+        return;
     } else if (newDiceTotal > numberBlockTotal) {
         gameBust(); // Checks whether the total value of the dice is higher than the total value of the remaining number blocks
+        return;
     } else if (newDiceTotal === 0){
         console.log("newDiceTotal is equal to 0: allowDiceRoll.");
         allowRollDice();
-    } else {
-        console.log("newDiceTotal is greater than 0: selectNumberBlock.");
+        return;
+    } 
+    
+    checkNumberBlockArray();
+
+    if (combi.includes(newDiceTotal)) {
+        console.log("sum of two numberBlocks = newDiceTotal");
         selectNumberBlock();
+    } else {
+        console.log("sum of two numberBlocks != newDiceTotal");
+        gameBust();
     }
+
+}
+
+function checkNumberBlockArray() {
+
+let numbers = [];
+
+for (let i = 0; i < 9; i++) {
+    let number = document.getElementsByClassName("number-block")[i].textContent;
+    console.log(number);
+    numbers.push(number);
+    console.log(numbers);
+}
+
+combi = [];
+var temp= 0;
+var numLen = Math.pow(2, numbers.length);
+	
+for (var i = 0; i < numLen ; i++){
+    temp = 0;
+    for (var j=0;j<numbers.length;j++) {
+        if ((i & Math.pow(2,j))){ 
+            temp += parseInt(numbers[j]);
+        }
+    }
+    if (temp !== 0) {
+        combi.push(temp);
+    }
+}
+
+console.log(combi);
 
 }
 
@@ -121,8 +163,14 @@ function rollDice(event) {
  */
 function selectNumberBlock() {
 
-    console.log("selectNumberBlock called.")
+    console.log("selectNumberBlock called");
 
+    // Array [remaining numberBlock values]
+    // Of remaining numberBlock values, get combination that add to newDiceTotal
+        // If numbers add to newDiceTotal: add event listeners to them
+        // If no numbers add to newDiceTotal: game bust
+
+    // Add event listeners
     numberBlock.forEach(number => {
         number.addEventListener('click', subtractNumberBlock);
     });
@@ -135,16 +183,18 @@ function selectNumberBlock() {
  */
 function subtractNumberBlock(event) {
 
+    // Removes event listeners from the number blocks
     numberBlock.forEach(number => {
         number.removeEventListener('click', subtractNumberBlock);
     });
 
+    // Sets the value of the numberBlockSelected 
     numberBlockSelected = event.target.innerHTML;
 
     console.log("subtractNumberBlock() called!"); // Delete
     console.log("numberBlockTotal = " + numberBlockTotal); // Delete
 
-    // subtracts numberBlockSelected from newDiceTotal and numberBlockTotal
+    // Subtracts numberBlockSelected from newDiceTotal and numberBlockTotal
     newDiceTotal = newDiceTotal - numberBlockSelected;
     numberBlockTotal = numberBlockTotal - numberBlockSelected;
 
@@ -154,7 +204,7 @@ function subtractNumberBlock(event) {
 
 
     // Make the selected Number Block Invisible
-    numberBlock[--numberBlockSelected].outerHTML = `<div class="number-block invisible" id="num1">0</div>`; // remove #num1
+    numberBlock[--numberBlockSelected].outerHTML = `<div class="number-block invisible">0</div>`; // remove #num1
 
     checkGame();
 }
