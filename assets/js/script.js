@@ -191,6 +191,13 @@ function subtractNumberBlock(event) {
     // Sets the value of the numberBlockSelected 
     numberBlockSelected = event.target.innerHTML;
 
+    // Checks if the numberBlockSelected is greater that the newDiceTotal: if so, asks the player to select another number
+    if (numberBlockSelected > newDiceTotal) {
+            alert("Click a number block less than the remaining dice total.")
+            selectNumberBlock();
+            return;
+    }
+
     console.log("subtractNumberBlock() called!"); // Delete
     console.log("numberBlockTotal = " + numberBlockTotal); // Delete
 
@@ -213,8 +220,16 @@ function subtractNumberBlock(event) {
  * Alert raised to notify of game won (All number blocks have been used)
  */
 function gameWon() {
-    alert("Congratulations!!! You have Shut the Box! Can you manage to complete is again?");
-    resetGame();
+    
+    let messageBoard = document.getElementsByClassName("message-board")[0];
+    let gameWonAlert = document.getElementsByClassName("game-won")[0];
+
+    messageBoard.classList.remove("invisible");
+    gameWonAlert.classList.remove("invisible");
+
+    let tryAgain = document.getElementsByClassName("try-again")[1];
+    tryAgain.addEventListener('click', resetGame);
+
 }
 
 /**
@@ -222,8 +237,18 @@ function gameWon() {
  * than the total value of the remaining number blocks)
  */
 function gameBust() {
-    alert("You have gone bust! The total value of the dice rolled is higher than the total value of the remaining number blocks. Try again to see if you can Shut the Box!");
-    resetGame();
+
+    let messageBoard = document.getElementsByClassName("message-board")[0];
+    let gameBustAlert = document.getElementsByClassName("game-bust")[0];
+    let bustDiceTotal = document.getElementById("bust-dice-total");
+
+    messageBoard.classList.remove("invisible");
+    gameBustAlert.classList.remove("invisible");
+    bustDiceTotal.innerHTML = newDiceTotal;
+
+    let tryAgain = document.getElementsByClassName("try-again")[0];
+    tryAgain.addEventListener('click', resetGame);
+
 }
 
 /**
