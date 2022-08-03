@@ -3,11 +3,8 @@
 let roll = document.getElementById('roll');
 let newDiceTotal = "";
 const numberBlock = document.querySelectorAll(".number-block");
-let numberBlockTotal = "";
+let numberBlockTotal = 45;
 let numberBlockSelected = "";
-
-let num1 = document.getElementById('num1');
-let num7 = document.getElementById('num7');
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -38,39 +35,53 @@ function rollDice(event) {
     let newDice1 = Math.floor(Math.random() * 6) + 1;
     let newDice2 = Math.floor(Math.random() * 6) + 1;
 
-    console.log("dice1 new value = " + newDice1);
-    console.log("dice2 new value = " + newDice2);
+    console.log("dice1 new value = " + newDice1); // Delete
+    console.log("dice2 new value = " + newDice2); // Delete
 
     let dice1 = document.getElementById("dice1");
     let dice2 = document.getElementById("dice2");
 
-    if (newDice1 === 1) {
-        dice1.outerHTML = `<i class="fa-solid fa-dice-one" id="dice1"></i>`;
-    } else if (newDice1 === 2) {
-        dice1.outerHTML = `<i class="fa-solid fa-dice-two" id="dice1"></i>`;
-    } else if (newDice1 === 3) {
-        dice1.outerHTML = `<i class="fa-solid fa-dice-three" id="dice1"></i>`;
-    } else if (newDice1 === 4) {
-        dice1.outerHTML = `<i class="fa-solid fa-dice-four" id="dice1"></i>`;
-    } else if (newDice1 === 5) {
-        dice1.outerHTML = `<i class="fa-solid fa-dice-five" id="dice1"></i>`;
-    } else if (newDice1 === 6) {
-        dice1.outerHTML = `<i class="fa-solid fa-dice-six" id="dice1"></i>`;
-    };
+    switch (newDice1) {
+        case 1:
+            dice1.outerHTML = `<i class="fa-solid fa-dice-one" id="dice1"></i>`;
+            break;
+        case 2:
+            dice1.outerHTML = `<i class="fa-solid fa-dice-two" id="dice1"></i>`;
+            break;
+        case 3:
+            dice1.outerHTML = `<i class="fa-solid fa-dice-three" id="dice1"></i>`;
+            break;
+        case 4:
+            dice1.outerHTML = `<i class="fa-solid fa-dice-four" id="dice1"></i>`;
+            break;
+        case 5:
+            dice1.outerHTML = `<i class="fa-solid fa-dice-five" id="dice1"></i>`;
+            break;
+        case 6:
+            dice1.outerHTML = `<i class="fa-solid fa-dice-six" id="dice1"></i>`;
+            break;
+    }
 
-    if (newDice2 === 1) {
-        dice2.outerHTML = `<i class="fa-solid fa-dice-one" id="dice2"></i>`;
-    } else if (newDice2 === 2) {
-        dice2.outerHTML = `<i class="fa-solid fa-dice-two" id="dice2"></i>`;
-    } else if (newDice2 === 3) {
-        dice2.outerHTML = `<i class="fa-solid fa-dice-three" id="dice2"></i>`;
-    } else if (newDice2 === 4) {
-        dice2.outerHTML = `<i class="fa-solid fa-dice-four" id="dice2"></i>`;
-    } else if (newDice2 === 5) {
-        dice2.outerHTML = `<i class="fa-solid fa-dice-five" id="dice2"></i>`;
-    } else if (newDice2 === 6) {
-        dice2.outerHTML = `<i class="fa-solid fa-dice-six" id="dice2"></i>`;
-    };
+    switch (newDice2) {
+        case 1:
+            dice2.outerHTML = `<i class="fa-solid fa-dice-one" id="dice2"></i>`;
+            break;
+        case 2:
+            dice2.outerHTML = `<i class="fa-solid fa-dice-two" id="dice2"></i>`;
+            break;
+        case 3:
+            dice2.outerHTML = `<i class="fa-solid fa-dice-three" id="dice2"></i>`;
+            break;
+        case 4:
+            dice2.outerHTML = `<i class="fa-solid fa-dice-four" id="dice2"></i>`;
+            break;
+        case 5:
+            dice2.outerHTML = `<i class="fa-solid fa-dice-five" id="dice2"></i>`;
+            break;
+        case 6:
+            dice2.outerHTML = `<i class="fa-solid fa-dice-six" id="dice2"></i>`;
+            break;
+    }
 
     console.log(document.getElementById("dice1").outerHTML);
     console.log(document.getElementById("dice2").outerHTML);
@@ -88,14 +99,6 @@ function rollDice(event) {
  function checkGame() {
 
     console.log("checkGame() called!"); // To be deleted
-
-    numberBlockTotal = 0; // Resets the numberBlockTotal to "0" to prevent accumulation from the previous sum
-
-    // Calculates the new numberBlockTotal as a numberBlock may have been removed
-    for (let i = 0; i < 9; i++){
-        numberBlockTotal = numberBlockTotal + parseInt(numberBlock[i].innerHTML);
-    }
-
     console.log("numberBlockTotal = " + numberBlockTotal); // To be deleted
 
     if (newDiceTotal && numberBlockTotal === 0) { 
@@ -114,23 +117,15 @@ function rollDice(event) {
 
 /**
  * Creates the event listeners for allowing the user to remove a number block
- * It only adds event listeners to values <= newDiceTotal
+ * It only adds event listeners to values <= newDiceTotal : delete
  */
 function selectNumberBlock() {
 
-    numberBlock.forEach(number => {
-        number.addEventListener('click', function() {
-            numberBlockSelected = number.innerHTML;
-            subtractNumberBlock();
-        });
-      });
+    console.log("selectNumberBlock called.")
 
-    // for (let i = 0; i < 10; i++) {
-    //     numberBlock[i].addEventListener('click', function() {
-    //         numberBlockSelected = ++i;
-    //         subtractNumberBlock();
-    //     });
-    // }
+    numberBlock.forEach(number => {
+        number.addEventListener('click', subtractNumberBlock);
+    });
 
 }
 
@@ -139,21 +134,27 @@ function selectNumberBlock() {
  * Subtracts the value of the number block from the total value of both dice
  */
 function subtractNumberBlock(event) {
-    
-    console.log("subtractNumberBlock() called!");
-    console.log("numberBlockTotal = " + numberBlockTotal);
+
+    numberBlock.forEach(number => {
+        number.removeEventListener('click', subtractNumberBlock);
+    });
+
+    numberBlockSelected = event.target.innerHTML;
+
+    console.log("subtractNumberBlock() called!"); // Delete
+    console.log("numberBlockTotal = " + numberBlockTotal); // Delete
 
     // subtracts numberBlockSelected from newDiceTotal and numberBlockTotal
     newDiceTotal = newDiceTotal - numberBlockSelected;
     numberBlockTotal = numberBlockTotal - numberBlockSelected;
 
-    console.log("numberBlockSelected = " + numberBlockSelected);
-    console.log("newDiceTotal = " + newDiceTotal);
-    console.log("numberBlockTotal = " + numberBlockTotal);
+    console.log("numberBlockSelected = " + numberBlockSelected); // Delete
+    console.log("newDiceTotal = " + newDiceTotal); // Delete
+    console.log("numberBlockTotal = " + numberBlockTotal); // Delete
 
 
     // Make the selected Number Block Invisible
-    numberBlock[--numberBlockSelected].outerHTML = `<div class="number-block invisible" id="num1">0</div>`;
+    numberBlock[--numberBlockSelected].outerHTML = `<div class="number-block invisible" id="num1">0</div>`; // remove #num1
 
     checkGame();
 }
@@ -163,7 +164,7 @@ function subtractNumberBlock(event) {
  */
 function gameWon() {
     alert("Congratulations!!! You have Shut the Box! Can you manage to complete is again?");
-    // resetGame();
+    resetGame();
 }
 
 /**
@@ -172,28 +173,15 @@ function gameWon() {
  */
 function gameBust() {
     alert("You have gone bust! The total value of the dice rolled is higher than the total value of the remaining number blocks. Try again to see if you can Shut the Box!");
-    // resetGame();
+    resetGame();
 }
 
 /**
- * Resets the game so all number blocks are visible: Both dice reset to number 1.
+ * Resets the game by refreshing the page.
  * Called when the "reset" button is clicked or after the gamewon()/gameBust() alert boxes are closed.
  */
 function resetGame() {
 
-    console.log("resetGame() called!")
+    location.reload()
 
-    let numberBlockArea = document.getElementsByClassName("number-block-area")[0].innerhtml;
-
-    numberBlockArea = `<div class="number-block" id="num1">1</div>
-    <div class="number-block" id="num2">2</div>
-    <div class="number-block" id="num3">3</div>
-    <div class="number-block" id="num4">4</div>
-    <div class="number-block" id="num5">5</div>
-    <div class="number-block" id="num6">6</div>
-    <div class="number-block" id="num7">7</div>
-    <div class="number-block" id="num8">8</div>
-    <div class="number-block" id="num9">9</div>`;
-
-    allowRollDice();
 }
