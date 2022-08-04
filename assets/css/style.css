@@ -16,9 +16,7 @@ body {
 
 .heading {
     height: 75px;
-    width: 100%;
-    display: grid;
-    place-items: center;
+    width: 100vw;
     background-color: gray;
 }
 
@@ -45,6 +43,24 @@ h2 {
 .fa-dice {
     color: white;
 }
+
+/* Nav */
+
+#htplay {
+    text-decoration: none;
+    color: white;
+    background-color: red;
+    padding: 10px;
+    border-radius: 5px;
+    float: right;
+    position: relative;
+    bottom: 55px;
+    right: 2%;
+}
+
+#htplay:hover {
+    background-color: black;
+} 
 
 /* Game Area */
 /* Game Board */
@@ -88,31 +104,44 @@ h2 {
 
 /* Dice Icons */
 
+.dice-area {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 #dice1, #dice2 {
     font-size: 100px;
     color: white;
-    position: relative;
-    left: 10%;
-    top: 15%;
+    padding-top: 50px;
+}
+
+#dice1 {
     margin-right: 10%;
 }
 
 /* Buttons */
 
+.button-area {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 40px;
+}
+
 button {
-    padding: 25px 50px;
+    padding: 0 50px;
     font-weight: bold;
     color: white;
-    float: right;
-    position: relative;
-    top: 20%;
-    right: 10%;
-    margin-left: 10%;
     border-radius: 5px;
 }
 
 #roll {
     background-color: gray;
+    margin-right: 5%;
 }
 
 #roll:hover {
@@ -143,8 +172,8 @@ button {
     background-color: rgba(128, 128, 128, 0.521);
     display: grid;
     place-items: center;
-    position: absolute;
-    bottom: 375px;
+    position: relative;
+    bottom: 275px;
 }
 
 .game-bust {
@@ -154,7 +183,7 @@ button {
     text-align: center;
     display: grid;
     place-items: center;
-    position: absolute;
+    position: relative;
     padding: 20px;
 }
 
@@ -176,6 +205,10 @@ button {
     font-size: large;
 }
 
+.how-to-play > li {
+    list-style: none;
+}
+
 /* Footer */
 
 footer {
@@ -189,4 +222,60 @@ footer {
 
 .footer {
     padding-top: 15px;
+}
+
+/*  media queries */
+
+/* For larger to medium screen size from 1400px wide*/
+
+@media screen and (max-width: 1400px) {
+
+    .number-block {
+        padding: 80px 19px;
+        font-size: 200%;
+    }
+
+}
+
+/* For medium screen sizes from 950px wide*/
+
+@media screen and (max-width: 950px) {
+
+    .number-block {
+        padding: 80px 10px;
+        font-size: 200%;
+    }
+
+}
+
+/* For small screen sizes from 650px wide*/
+
+@media screen and (max-width: 650px) {
+
+    .number-block {
+        padding: 80px 4px;
+        font-size: 200%;
+    }
+
+    .number-block-area {
+        height: 30%;
+    }
+
+}
+
+/* For very small screen sizes from 50px wide*/
+
+@media screen and (max-width: 500px) {
+
+    #num1, #num2, #num3, #num4, #num5 {
+        position: relative;
+        left: 65px;
+    }
+
+    #num6, #num7, #num8, #num9 {
+        position: relative;
+        top: 165px;
+        right: 75px;
+    }
+
 }
