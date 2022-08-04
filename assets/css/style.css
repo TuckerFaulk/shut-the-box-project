@@ -49,6 +49,7 @@ h2 {
 #htplay {
     text-decoration: none;
     color: white;
+    text-transform: uppercase;
     background-color: red;
     padding: 10px;
     border-radius: 5px;
@@ -66,10 +67,11 @@ h2 {
 /* Game Board */
 
 .game-area {
-    height: 60vh;
+    height: 550px;
     width: 100%;
     display: grid;
     place-items: center;
+    margin-top: 20px;
 }
 
 .game-board {
@@ -78,6 +80,8 @@ h2 {
     width: 60%;
     border: solid 5px black;
     border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 /* Number Blocks */
@@ -94,8 +98,6 @@ h2 {
     border: solid 3px black;
     padding: 80px 30px;
     font-size: 300%;
-    display: inline;
-    position: relative;
 }
 
 .invisible {
@@ -126,14 +128,14 @@ h2 {
 .button-area {
     height: 10%;
     width: 100%;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    place-items: center;
     position: relative;
-    top: 40px;
+    top: 25px;
 }
 
 button {
-    padding: 0 50px;
+    padding: 15px 50px;
     font-weight: bold;
     color: white;
     border-radius: 5px;
@@ -141,7 +143,6 @@ button {
 
 #roll {
     background-color: gray;
-    margin-right: 5%;
 }
 
 #roll:hover {
@@ -150,6 +151,7 @@ button {
 
 #reset {
     background-color: red;
+    margin-top: 10px;
 }
 
 #reset:hover {
@@ -201,11 +203,11 @@ button {
 
 .how-to-play {
     text-align: center;
-    padding: 10px 0 30px 0;
+    padding: 10px 20% 30px 20%;
     font-size: large;
 }
 
-.how-to-play > li {
+.how-to-play li {
     list-style: none;
 }
 
@@ -222,9 +224,11 @@ footer {
 
 .footer {
     padding-top: 15px;
+    padding-bottom: 15px;
+
 }
 
-/*  media queries */
+/*  Media queries */
 
 /* For larger to medium screen size from 1400px wide*/
 
@@ -252,6 +256,21 @@ footer {
 
 @media screen and (max-width: 650px) {
 
+    .heading {
+        height: 150px;
+    }
+
+    #htplay {
+        float: none;
+        bottom: 0;
+        right: 0;
+        top: 25px;
+    }
+
+    nav {
+        text-align: center;
+    }
+
     .number-block {
         padding: 80px 4px;
         font-size: 200%;
@@ -261,12 +280,41 @@ footer {
         height: 30%;
     }
 
+    .dice-area {
+        position: relative;
+        top: 20px;
+    }
+
+    .button-area {
+        top: 60px;
+    }
+
 }
 
-/* For very small screen sizes from 50px wide*/
+/* For very small screen sizes from 500px wide*/
 
 @media screen and (max-width: 500px) {
 
+    .game-area {
+        height: 700px;
+    }
+
+    .game-board {
+        height: 650px;
+    }
+
+    .number-block-area {
+        height: 20%;
+    }
+
+    .dice-area {
+        top: 200px;
+    }
+
+    .button-area {
+        top: 180px;
+    }
+    
     #num1, #num2, #num3, #num4, #num5 {
         position: relative;
         left: 65px;
@@ -276,6 +324,28 @@ footer {
         position: relative;
         top: 165px;
         right: 75px;
+    }
+
+}
+
+/* For xx-small screen sizes from 328px wide*/
+
+@media screen and (max-width: 328px) {
+    
+    .heading {
+        height: 225px;
+    }
+
+    #dice1, #dice2 {
+        font-size: 75px;
+    }
+
+    .how-to-play {
+        padding: 10px 5% 30px 5%;
+    }
+
+    footer {
+        height: 90px;
     }
 
 }
