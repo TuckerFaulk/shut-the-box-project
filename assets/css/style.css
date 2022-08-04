@@ -1,7 +1,15 @@
+/* Google Fonts: Mouse Memoirs and Oswald */
+@import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Ubuntu&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     border: none;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    color: black;
 }
 
 /* Heading and Logo */
@@ -15,11 +23,23 @@
 }
 
 .logo {
-    font-size: 300%;
+    font-size: 400%;
+    font-family: 'Mouse Memoirs', sans-serif;
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
     color: black;
+}
+
+h2, h3 {
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 200%;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: red;
+    text-transform: uppercase;
 }
 
 .fa-dice {
