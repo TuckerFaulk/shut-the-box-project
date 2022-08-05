@@ -164,6 +164,7 @@ button {
 
 .try-again {
     background-color: gray;
+    margin-top: 20px;
 }
 
 .try-again:hover {
@@ -197,6 +198,7 @@ button {
     background-color: white;
     border: solid 3px red;
     font-size: large;
+    text-align: center;
     display: grid;
     place-items: center;
     position: absolute;
@@ -252,6 +254,10 @@ footer {
     .number-block {
         padding: 80px 10px;
         font-size: 200%;
+    }
+
+    .game-won {
+        width: 80%;
     }
 
 }
@@ -318,6 +324,16 @@ footer {
     .button-area {
         top: 180px;
     }
+
+    .game-bust, .game-won {
+        font-size: small;
+        padding: 5px;
+    }
+
+    .try-again {
+        padding: 15px 20px;
+        margin-top: 5px;
+    }
     
     #num1, #num2, #num3, #num4, #num5 {
         position: relative;
@@ -342,6 +358,10 @@ footer {
 
     #dice1, #dice2 {
         font-size: 75px;
+    }
+
+    .game-bust {
+        width: 80%;
     }
 
     .how-to-play {

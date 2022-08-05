@@ -219,7 +219,6 @@ function subtractNumberBlock(event) {
 
 
     // Make the selected Number Block Invisible
-    // numberBlock[--numberBlockSelected].outerHTML = `<div class="number-block invisible">0</div>`;
     numberBlock[--numberBlockSelected].classList.add('invisible');
     numberBlock[numberBlockSelected].innerHTML = 0;
 
