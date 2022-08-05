@@ -1,108 +1,182 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Shut the Box | Dice Game! 
 
-Welcome TuckerFaulk,
+<!-- My idea for this project was to develop a concept website for the Sub30s Buddhist Group which I regularly attend. The purpose of the website is to provide some general information on the group (including What we do?, When we meet?, Where we meet?), an introduction into Buddhism and Meditation, and an opportunity to get in touch to request further information. -->
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Am I Responsive Image](assets/readme-images/am-i-responsive.jpg)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+# Table of contents
+- [Design](#design)
+- [Features](#features)
+  - [Existing Features](#existing-features)
+    - [Languages Used](#languages-used)
+    - [Navigation](#navigation)
+    - [Home Page Hero Image](#home-page-hero-image)
+    - [Home Page](#home-page)
+    - [Footer](#footer)
+    - [Buddhism and Meditation](#buddhism-and-meditation)
+    - [Get in Touch](#get-in-touch)
+  - [Future Features](#future-features)
+- [Testing](#testing)
+  - [Validator Testing](#validator-testing)
+  - [Unfixed Bugs](#unfixed-bugs)
+  - [Libraries & Programs Used](#libraries-and-programs-used)
+- [Deployment](#deployment)
+- [Credits](#credits)
+  - [Content](#content)
+  - [Media](#media)
 
-## Gitpod Reminders
+# Design
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+**Text & Background Color**
 
-`python3 -m http.server`
+<!-- I selected both the text and background colors to keep the website simple. I wanted to keep the main background white and introduce color into the website through the images used. I decided to use a light grey for the header and the footer to provide some contrast from the main sections. -->
 
-A blue button should appear to click: _Make Public_,
+**Game Area Design**
 
-Another blue button should appear to click: _Open Browser_.
+- Wireframing
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+**Game Process Planning - Flow Chart**
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
 
-To log into the Heroku toolbelt CLI:
+# Features
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Existing Features:
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Languages Used
 
-------
+- HTML5
+- CSS3
+- JavaScript
 
-## Release History
+### Navigation
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+<!-- A three navigation buttons (one per page) have been provided in the top right section of the header to allow for the user to easily locate and use. The location of the navigation buttons change with smaller screens -- these are as such located under the logo due to the smaller screen space available. -->
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+![Logo and Navigation Bar](assets/readme-images/header.jpg)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Home Page Hero Image
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+<!-- A Hero Image is used on the Home Page (only) under the Header. The text over the Hero Image, 'Buddha - Dharma - Sangha', has been added to break up the image and has been included to improve the design. 'Buddha - Dharma - Sangha' are the Three Jewels of Buddhism and are an important part of the teachings.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+![Hero Image](assets/readme-images/hero-image.jpg) -->
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Home Page
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+<!-- This page provides all the information a user will need about the group. Each of the questions a user may have about the group have been broken into sections to make it easy to read. This section has been kept simple and to the point. -->
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+#### How to play?
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+<!-- This section has been placed first to provide some context about the page and what the group is about. -->
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+<!-- ![Who we are?](assets/readme-images/who-we-are-section.jpg) -->
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### Footer
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+The footer section features a note that this site is for educational purposes only and details the name of the creator.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+The note regarding this site being for educational purposes only has been included as I do not have the rights to some of the content and media used on the website. The content and media has been credited in this document.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+<!-- ![Footer](assets/readme-images/footer.jpg) -->
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Other Features
 
-------
+- Favicon
+- Other ...
 
-## FAQ about the uptime script
+## Future Features
 
-**Why have you added this script?**
+- Highlighting
+- Animations (Dice, card flip and Won Screen)
+- Event listener for keyboard use of dice and numbers
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+# Testing
 
-**How will this affect me?**
+<!-- Testing of the website has been complete by myself and a few friends and family on various devices (Laptop, Tablet and Mobile). It is noted that all of the links, videos, and the contact form (including the input fields requiring information before submitting) functioned as expected.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+To ensure that the website worked on a different browser that what was used for the development (Google Chrome), testing also took place on Microsoft Edge.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+When I added a feature for the navigation bar to remain static whilst the user scrolled down the page, this intially created an issue with the top of the hero image hidden behind the navigation bar. This was fixed by putting the content of the 'header' into a 'div' and then styling the height of this to the same as the header section.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+A significant amount of time was spent on Google Chrome Dev Tools both for the intial development, media queries styling and testing at various screen sizes. I found that I spent a lot of time with styling and testing of the 'Buddhism and Meditation' Section to ensure that the page worked well on smaller screens.
 
-**So….?**
+After completing the first draft of the site, I run the code through the W3C HTML and CSS validators, and the Lighthouse Accessibility Audit. There were only minor changes required for the W3C HTML and CSS validators, but there were some performance improvement which were made as a result of the suggestions from the Lighthouse Accessibility Audit, including:
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+  - I intially use 'iframes' for my YouTube Videos. I found that by downloading the mp4 files and changing the element to a 'video' tag, this improved the performance of the site.
+  - A minor improvement in the performance score was made from defining the fixed image height in the 'What we do?' section rather than having it as 100%. -->
 
-**Can I opt out?**
+- Pseudo code
+- console.log()s
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+## Validator Testing
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+<!-- - HTML: No errors were returned when passing through the official W3C validator:
 
-**Anything more?**
+![W3C HTML Validator](assets/readme-images/html-checker.jpg)
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+- CSS: No errors were found when passing through the official (Jigsaw) validator:
 
----
+![W3C CSS Validator](assets/readme-images/css-checker.jpg)
 
-Happy coding!
+- JSHint: ???:
+
+![W3C JS](asset)
+
+<!-- - Lighthouse (Accessibility Audit): The page achieved a great accessibility performance: -->
+
+<!-- ![Lighthouse Accessibility Audit](assets/readme-images/lighthouse-checker.jpg)
+
+NB: Although the above screenshots only shows the results of the home page, no errors were found on the other pages of the site and they also achieved great accessibility performance. --> -->
+
+## Unfixed Bugs
+
+<!-- I have found that the spacing below some of the text sections of the 'Buddhism & Meditation' page are quite large. I think that due to the way that I have designed the page by using similar classes for the text tiles to reduce on CSS coding, I had not anticipated that where there are larger blocks of text, that these sections needed to be larger for smaller screens.
+
+I do not think that this takes too much away from the design of the website, and I am happy with how it is, but I do plan to spend some more time on website design in the the future, so I can better plan before a project to avoid this.
+
+It is also noted that the 'Performance' measure from the Lighthouse Accessibility Audit was relatively low (63/100). This is something which I am going to look into so I can improve on it for the future. -->
+
+## Libraries and Programs Used
+
+- Github: Store Repository
+- Gitpod: Create the html and css files
+<!-- - Google Fonts: Font-family 'Raleway' and 'Ubuntu' -->
+<!-- - Google Chrome Dev Tools: To aid the initial styling for media queries and testing at various screen sizes -->
+<!-- - Microsoft Edge, Mozilla Firefox, Safari: Site testing on alternative browsers -->
+- Microsoft OneNote: Planning notes for the project
+<!-- - Font Awesome: Social media icons -->
+- JavaScript coding tutor:
+- Microsoft Whiteboard: Wireframing design and flow chart for game process planning
+- Am I Responsive: Screenshots of the final project for the README file
+
+# Deployment
+
+The site was deployed to GitHub pages. The steps to deploy are as follows: 
+
+  1. In the GitHub repository, navigate to the Settings tab. 
+  2. From the settings tab, select the 'Pages' tab in the 'Code and Automation' section.
+  3. From the source section drop-down menu, select the 'Main' branch.
+  4. Once the 'Main' branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
+
+The live link for the site can be found here - https://tuckerfaulk.github.io/shut-the-box-project/
+
+# Credits
+
+<!-- I have really enjoyed the Code Institute course up till now, and I am looking forward to the next units of the course. I wanted to thank the Slack Community for their support learning the content and my Mentor Martina for her guidance with this project and assurances that creating a website is not as scary as I initially thought.
+
+As a starting point I looked at the Coders Coffee and Love Running projects.
+
+- From the Love Running Project, I took inspiration for the header, hero banner, footer and form.
+- From the Coders Coffee Project, I took inspiration from in my 'What we do?' section. -->
+
+## Content
+
+
+
+## Media
+
+Images:
+
+
+

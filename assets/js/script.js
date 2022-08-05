@@ -36,8 +36,8 @@ function rollDice(event) {
     let newDice1 = Math.floor(Math.random() * 6) + 1;
     let newDice2 = Math.floor(Math.random() * 6) + 1;
 
-    console.log("dice1 new value = " + newDice1); // Delete
-    console.log("dice2 new value = " + newDice2); // Delete
+    console.log("dice1 new value = " + newDice1); // To be delete
+    console.log("dice2 new value = " + newDice2); // To be delete
 
     let dice1 = document.getElementById("dice1");
     let dice2 = document.getElementById("dice2");
@@ -84,8 +84,8 @@ function rollDice(event) {
             break;
     }
 
-    console.log(document.getElementById("dice1").outerHTML);
-    console.log(document.getElementById("dice2").outerHTML);
+    console.log(document.getElementById("dice1").outerHTML); // To be delete
+    console.log(document.getElementById("dice2").outerHTML); // To be delete
 
     newDiceTotal = newDice1 + newDice2;
 
@@ -95,7 +95,7 @@ function rollDice(event) {
 }
 
 /**
- * 
+ * To be completed...
  */
  function checkGame() {
 
@@ -127,7 +127,7 @@ function rollDice(event) {
 }
 
 /**
- * 
+ * To be completed...
  */
 function checkNumberBlockArray() {
 
@@ -156,7 +156,7 @@ for (var i = 0; i < numLen ; i++){
     }
 }
 
-console.log(combi);
+console.log(combi); // To be delete
 
 }
 
@@ -166,12 +166,7 @@ console.log(combi);
  */
 function selectNumberBlock() {
 
-    console.log("selectNumberBlock called");
-
-    // Array [remaining numberBlock values]
-    // Of remaining numberBlock values, get combination that add to newDiceTotal
-        // If numbers add to newDiceTotal: add event listeners to them
-        // If no numbers add to newDiceTotal: game bust
+    console.log("selectNumberBlock called"); // To be delete
 
     // Add event listeners
     numberBlock.forEach(number => {
@@ -214,7 +209,7 @@ function subtractNumberBlock(event) {
 
 
     // Make the selected Number Block Invisible
-    numberBlock[--numberBlockSelected].outerHTML = `<div class="number-block invisible">0</div>`; // remove #num1
+    numberBlock[--numberBlockSelected].outerHTML = `<div class="number-block invisible">0</div>`;
 
     checkGame();
 }
