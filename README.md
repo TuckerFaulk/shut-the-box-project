@@ -174,6 +174,7 @@ It is also noted that the 'Performance' measure from the Lighthouse Accessibilit
 <!-- - Microsoft Edge, Mozilla Firefox, Safari: Site testing on alternative browsers -->
 - Microsoft OneNote: Planning notes for the project
 <!-- - Font Awesome: Social media icons -->
+- Gauger.io/fonticon/: Font Awesome Favicon Generator
 - JavaScript coding tutor:
 - Microsoft Whiteboard: Wireframing design and flow chart for game process planning
 - Am I Responsive: Screenshots of the final project for the README file

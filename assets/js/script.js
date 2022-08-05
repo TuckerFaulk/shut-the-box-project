@@ -4,6 +4,7 @@ let newDiceTotal = "";
 const numberBlock = document.querySelectorAll(".number-block");
 let numberBlockTotal = 45;
 let numberBlockSelected = "";
+let numbers = [];
 var combi = [];
 
 // Event listener added to the roll button on DomContentLoaded allowing the game to run
@@ -19,9 +20,9 @@ document.addEventListener("DOMContentLoaded", function() {
  * Makes the roll button visible and creates the event listener for allowing the user to roll the dice
  */
 function allowRollDice() {
-
-    roll.outerHTML = `<button id="roll invisible">Roll</button>`;
     
+    roll.classList.remove('invisible');
+
     roll.addEventListener('click', rollDice);
 
 }
@@ -37,7 +38,7 @@ function rollDice(event) {
 
     roll.removeEventListener('click', rollDice);
 
-    roll.outerHTML = `<button id="roll invisible">Roll</button>`;
+    roll.classList.add('invisible');
 
     let newDice1 = Math.floor(Math.random() * 6) + 1;
     let newDice2 = Math.floor(Math.random() * 6) + 1;
@@ -101,7 +102,7 @@ function rollDice(event) {
 }
 
 /**
- * To be completed...
+ * Checks the conditions of the game to see if the player have won, bust or can continue
  */
  function checkGame() {
 
@@ -133,11 +134,12 @@ function rollDice(event) {
 }
 
 /**
- * To be completed...
+ * Creates an array of remaining number blocks available
+ * Then all combinations of these numbers added together is created in a new array
  */
 function checkNumberBlockArray() {
 
-let numbers = [];
+numbers = [];
 
 for (let i = 0; i < 9; i++) {
     let number = document.getElementsByClassName("number-block")[i].textContent;
@@ -146,7 +148,7 @@ for (let i = 0; i < 9; i++) {
     console.log(numbers); // To be deleted
 }
 
-// Code source: !!!!!!
+// Original code source: https://codereview.stackexchange.com/questions/7001/generating-all-combinations-of-an-array
 
 combi = [];
 var temp= 0;
@@ -195,7 +197,7 @@ function subtractNumberBlock(event) {
     // Sets the value of the numberBlockSelected 
     numberBlockSelected = event.target.innerHTML;
 
-    // Change the below to an html div not alert box !!!!!!!!!!!!
+    // Martina??? Is the below okay to keep as an alert Box?????
 
     // Checks if the numberBlockSelected is greater that the newDiceTotal: if so, asks the player to select another number
     if (numberBlockSelected > newDiceTotal) {
@@ -217,17 +219,34 @@ function subtractNumberBlock(event) {
 
 
     // Make the selected Number Block Invisible
-    numberBlock[--numberBlockSelected].outerHTML = `<div class="number-block invisible">0</div>`;
+    // numberBlock[--numberBlockSelected].outerHTML = `<div class="number-block invisible">0</div>`;
+    numberBlock[--numberBlockSelected].classList.add('invisible');
+    numberBlock[numberBlockSelected].innerHTML = 0;
 
-    // Checks if the remaining numberBlocks = to the remaining newDiceTotal
-    // To be completed...
-    // if numbers.includes(newDiceTotal) {checkGame();} else {keep previously selectedNumberBlock > alert() > selectNumberBlock();}
 
-    checkGame(); // To be deleted: see above
+    // Checks if the remaining numberBlocks are equal to the remaining newDiceTotal 
+    // If not, the game asks for another number to be selected
+    checkNumberBlockArray();
+
+    let diceTotalString = newDiceTotal.toString();
+    let remainingBlocksAvailable = numbers.includes(diceTotalString);
+
+    if (remainingBlocksAvailable) {
+        checkGame();
+    } else {
+        numberBlock[numberBlockSelected].classList.remove('invisible');
+        numberBlock[numberBlockSelected].innerHTML = ++numberBlockSelected;
+
+        newDiceTotal = newDiceTotal + numberBlockSelected;
+        numberBlockTotal = numberBlockTotal + numberBlockSelected;
+        alert("Select another number which will allow you to total up to the dice value.");
+        selectNumberBlock();
+    }
+
 }
 
 /**
- * Notifies the player that they have won the game (all number blocks have been used)
+ * Notifies the player that they have won the game (all number blocks have been clicked)
  */
 function gameWon() {
     
