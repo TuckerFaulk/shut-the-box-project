@@ -1,5 +1,4 @@
 // Global variables declared
-
 let roll = document.getElementById('roll');
 let newDiceTotal = "";
 const numberBlock = document.querySelectorAll(".number-block");
@@ -7,6 +6,7 @@ let numberBlockTotal = 45;
 let numberBlockSelected = "";
 var combi = [];
 
+// Event listener added to the roll button on DomContentLoaded allowing the game to run
 document.addEventListener("DOMContentLoaded", function() {
 
     let reset = document.getElementById('reset');
@@ -16,10 +16,12 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 /**
- * Creates the event listeners for allowing the user to roll the dice
+ * Makes the roll button visible and creates the event listener for allowing the user to roll the dice
  */
 function allowRollDice() {
 
+    roll.outerHTML = `<button id="roll invisible">Roll</button>`;
+    
     roll.addEventListener('click', rollDice);
 
 }
@@ -28,10 +30,14 @@ function allowRollDice() {
  * Roll of both dice, called when the "Roll" button clicked
  * Updates the dice icons in html to a random new value (1-6)
  * Finally adds the value of both dice together
+ * Removes the roll event listner to prevnt the user re-rolling the dice 
+ * Hides the roll button so the user is aware that the dice have been rolled
  */
 function rollDice(event) {
 
     roll.removeEventListener('click', rollDice);
+
+    roll.outerHTML = `<button id="roll invisible">Roll</button>`;
 
     let newDice1 = Math.floor(Math.random() * 6) + 1;
     let newDice2 = Math.floor(Math.random() * 6) + 1;
@@ -109,7 +115,7 @@ function rollDice(event) {
         gameBust(); // Checks whether the total value of the dice is higher than the total value of the remaining number blocks
         return;
     } else if (newDiceTotal === 0){
-        console.log("newDiceTotal is equal to 0: allowDiceRoll.");
+        console.log("newDiceTotal is equal to 0: allowDiceRoll."); // To be deleted
         allowRollDice();
         return;
     } 
@@ -117,10 +123,10 @@ function rollDice(event) {
     checkNumberBlockArray();
 
     if (combi.includes(newDiceTotal)) {
-        console.log("sum of two numberBlocks = newDiceTotal");
+        console.log("sum of two numberBlocks = newDiceTotal"); // To be deleted
         selectNumberBlock();
     } else {
-        console.log("sum of two numberBlocks != newDiceTotal");
+        console.log("sum of two numberBlocks != newDiceTotal"); // To be deleted
         gameBust();
     }
 
@@ -135,10 +141,12 @@ let numbers = [];
 
 for (let i = 0; i < 9; i++) {
     let number = document.getElementsByClassName("number-block")[i].textContent;
-    console.log(number);
-    numbers.push(number);
-    console.log(numbers);
+    console.log(number); // To be deleted
+    numbers.push(number); // To be deleted
+    console.log(numbers); // To be deleted
 }
+
+// Code source: !!!!!!
 
 combi = [];
 var temp= 0;
@@ -162,13 +170,11 @@ console.log(combi); // To be delete
 
 /**
  * Creates the event listeners for allowing the user to remove a number block
- * It only adds event listeners to values <= newDiceTotal : delete
  */
 function selectNumberBlock() {
 
     console.log("selectNumberBlock called"); // To be delete
 
-    // Add event listeners
     numberBlock.forEach(number => {
         number.addEventListener('click', subtractNumberBlock);
     });
@@ -188,6 +194,8 @@ function subtractNumberBlock(event) {
 
     // Sets the value of the numberBlockSelected 
     numberBlockSelected = event.target.innerHTML;
+
+    // Change the below to an html div not alert box !!!!!!!!!!!!
 
     // Checks if the numberBlockSelected is greater that the newDiceTotal: if so, asks the player to select another number
     if (numberBlockSelected > newDiceTotal) {
@@ -211,11 +219,15 @@ function subtractNumberBlock(event) {
     // Make the selected Number Block Invisible
     numberBlock[--numberBlockSelected].outerHTML = `<div class="number-block invisible">0</div>`;
 
-    checkGame();
+    // Checks if the remaining numberBlocks = to the remaining newDiceTotal
+    // To be completed...
+    // if numbers.includes(newDiceTotal) {checkGame();} else {keep previously selectedNumberBlock > alert() > selectNumberBlock();}
+
+    checkGame(); // To be deleted: see above
 }
 
 /**
- * Alert raised to notify of game won (all number blocks have been used)
+ * Notifies the player that they have won the game (all number blocks have been used)
  */
 function gameWon() {
     
@@ -231,7 +243,7 @@ function gameWon() {
 }
 
 /**
- * Alert raise to notify of game bust (Total value of the dice rolled is higher 
+ * Notifies the player that they have gone bust (Total value of the dice rolled is higher 
  * than the total value of the remaining number blocks)
  */
 function gameBust() {

@@ -29,16 +29,22 @@
 
 **Text & Background Color**
 
+<!-- Google Fonts: Font-family 'Mouse Memoirs' and 'Ubuntu' -->
+
 <!-- I selected both the text and background colors to keep the website simple. I wanted to keep the main background white and introduce color into the website through the images used. I decided to use a light grey for the header and the footer to provide some contrast from the main sections. -->
 
 **Game Area Design**
 
-- Wireframing
+Based on the design of the Shut the Box board (see image).
+
+- Wireframing. 
+
+After intially developing the game board area to exactly reflect the wireframing design, it was noted that by stacking the number blocks, dice and buttons, instead of having the dice and buttons next to each other, this significantly reduced on the changes required when adding the media queries and meant that the design remained consistent for the user across all screen sizes.
 
 **Game Process Planning - Flow Chart**
 
 
-
+After the site was developed inline with the inital flow chart planning, as seen above, after testing of the site, it was noted that further conditional checking was required to prevent game faults: details of these faults have been 
 
 # Features
 
@@ -50,19 +56,26 @@
 - CSS3
 - JavaScript
 
-### Navigation
+### Header (including Navigation)
 
-<!-- A three navigation buttons (one per page) have been provided in the top right section of the header to allow for the user to easily locate and use. The location of the navigation buttons change with smaller screens -- these are as such located under the logo due to the smaller screen space available. -->
+<!-- Logo text and icon... -->
+
+Although there is only a single page with the 'How to play?' game rules loacted under the game area, it was noted during testing that on screens sizes with a smaller height, it was not immediately evident that these rules were available. By adding this button to the header, this solved this problem and also provided the user which a shortcut to this section of the page.
 
 ![Logo and Navigation Bar](assets/readme-images/header.jpg)
 
-### Home Page Hero Image
+### Landing Page (Game Area)
+
+- Game Board
+- Number Blocks
+- Dice Area (2 x Dice)
+- Roll and Reset Buttons
 
 <!-- A Hero Image is used on the Home Page (only) under the Header. The text over the Hero Image, 'Buddha - Dharma - Sangha', has been added to break up the image and has been included to improve the design. 'Buddha - Dharma - Sangha' are the Three Jewels of Buddhism and are an important part of the teachings.
 
 ![Hero Image](assets/readme-images/hero-image.jpg) -->
 
-### Home Page
+### Pop-up messages (Game Won, Game Bust, and Alerts)
 
 <!-- This page provides all the information a user will need about the group. Each of the questions a user may have about the group have been broken into sections to make it easy to read. This section has been kept simple and to the point. -->
 
@@ -93,25 +106,36 @@ The note regarding this site being for educational purposes only has been includ
 
 # Testing
 
-<!-- Testing of the website has been complete by myself and a few friends and family on various devices (Laptop, Tablet and Mobile). It is noted that all of the links, videos, and the contact form (including the input fields requiring information before submitting) functioned as expected.
+Testing of the website has been complete by myself and a few friends and family on various devices (Laptop, Tablet and Mobile). It is noted that all of the links, videos, and the contact form (including the input fields requiring information before submitting) functioned as expected.
 
 To ensure that the website worked on a different browser that what was used for the development (Google Chrome), testing also took place on Microsoft Edge.
 
-When I added a feature for the navigation bar to remain static whilst the user scrolled down the page, this intially created an issue with the top of the hero image hidden behind the navigation bar. This was fixed by putting the content of the 'header' into a 'div' and then styling the height of this to the same as the header section.
+- Event Listeners and removing event listeners
+- Reset Game (Template Literal)
 
-A significant amount of time was spent on Google Chrome Dev Tools both for the intial development, media queries styling and testing at various screen sizes. I found that I spent a lot of time with styling and testing of the 'Buddhism and Meditation' Section to ensure that the page worked well on smaller screens.
+- Roll exactly the same number.
 
-After completing the first draft of the site, I run the code through the W3C HTML and CSS validators, and the Lighthouse Accessibility Audit. There were only minor changes required for the W3C HTML and CSS validators, but there were some performance improvement which were made as a result of the suggestions from the Lighthouse Accessibility Audit, including:
+- The game would not notify the user that they had bust if a combination of their remaining number blocks did not total to the dice total.
 
-  - I intially use 'iframes' for my YouTube Videos. I found that by downloading the mp4 files and changing the element to a 'video' tag, this improved the performance of the site.
-  - A minor improvement in the performance score was made from defining the fixed image height in the 'What we do?' section rather than having it as 100%. -->
+<!-- (Add image) -->
 
-- Pseudo code
+The solution to this was to use some code which created a new array of all combinations of an array of numbers. The original code used concatenated all cominations of a list of letters. This was update to collate an array of the remaining number blocks and then to add (instead of concatenate) all combinations of these numbers.
+
+- If a user accidentally selected a number higher that the value of the dice...
+
+Feedback from testing of friends and family noted that using two dice with both a value of one as the starting position was slightly confusing as if the game had already started. 
+
+- How to Play? Section covering the game area on smaller screens - block elements not stacking. The initial thought was that the above sections "position" or "display" setting was preventing the blocks from stacking. Solution: The game-area section height was detailed using "vh". Changing this to pixels fixed this bug.
+
+Comment on CSS Media Queries testing.
+
+Useful techniques used during the testing process:
+- Writing pseudo code
 - console.log()s
 
 ## Validator Testing
 
-<!-- - HTML: No errors were returned when passing through the official W3C validator:
+- HTML: No errors were returned when passing through the official W3C validator:
 
 ![W3C HTML Validator](assets/readme-images/html-checker.jpg)
 
@@ -123,11 +147,15 @@ After completing the first draft of the site, I run the code through the W3C HTM
 
 ![W3C JS](asset)
 
-<!-- - Lighthouse (Accessibility Audit): The page achieved a great accessibility performance: -->
+- WebAim Contrast Checker: ???:
 
-<!-- ![Lighthouse Accessibility Audit](assets/readme-images/lighthouse-checker.jpg)
+![W3C JS](asset)
 
-NB: Although the above screenshots only shows the results of the home page, no errors were found on the other pages of the site and they also achieved great accessibility performance. --> -->
+- Lighthouse (Accessibility Audit): The page achieved a great accessibility performance:
+
+![Lighthouse Accessibility Audit](assets/readme-images/lighthouse-checker.jpg)
+
+NB: Although the above screenshots only shows the results of the home page, no errors were found on the other pages of the site and they also achieved great accessibility performance.
 
 ## Unfixed Bugs
 
@@ -141,7 +169,7 @@ It is also noted that the 'Performance' measure from the Lighthouse Accessibilit
 
 - Github: Store Repository
 - Gitpod: Create the html and css files
-<!-- - Google Fonts: Font-family 'Raleway' and 'Ubuntu' -->
+- Google Fonts: Font-family 'Mouse Memoirs' and 'Ubuntu'
 <!-- - Google Chrome Dev Tools: To aid the initial styling for media queries and testing at various screen sizes -->
 <!-- - Microsoft Edge, Mozilla Firefox, Safari: Site testing on alternative browsers -->
 - Microsoft OneNote: Planning notes for the project
