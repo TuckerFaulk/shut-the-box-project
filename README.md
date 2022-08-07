@@ -10,21 +10,21 @@ The object of the game is to roll numbers on the dice that exactly add up to the
 - [Design](#design)
   - [Text and Background Color](#text-and-background-color)
   - [Game Area Design](#game-area-design)
-  - [Game Process Planning (Flow Chart)](#game-process-planning-(Flow-Chart))
+  - [Game Process Planning Flow Chart](#game-process-planning-flow-chart)
 - [Features](#features)
   - [Existing Features](#existing-features)
     - [Languages Used](#languages-used)
-    - [Header (including Navigation)](#Header-(including-Navigation))
+    - [Header including Navigation](#Header-including-navigation)
     - [Game Area](#game-area)
-    - [Pop-up Messages (Game Won, Game Bust, and Alerts)](#pop-up-messages-(game-won,-game-bust,-and-alerts))
-    - [How to Play?](#how-to-play?)
+    - [Pop-up Messages](#pop-up-messages)
+    - [How to Play](#how-to-play)
     - [Footer](#footer)
     - [Other Features](#other-features)
   - [Future Features](#future-features)
 - [Testing](#testing)
   - [Validator Testing](#validator-testing)
   - [Unfixed Bugs](#unfixed-bugs)
-  - [Libraries & Programs Used](#libraries-and-programs-used)
+  - [Libraries and Programs Used](#libraries-and-programs-used)
 - [Deployment](#deployment)
 - [Credits](#credits)
   - [Content](#content)
@@ -46,7 +46,7 @@ The game area is the main section of the site where the game can be played. The 
 
 After initially developing the game board area to exactly reflect the wireframing design, it was noted that by stacking the number blocks, dice and buttons, instead of having the dice and buttons next to each other, this significantly reduced on the changes required when adding the media queries and meant that the design remained consistent for the user across all screen sizes.
 
-**Game Process Planning (Flow Chart)**
+**Game Process Planning Flow Chart**
 
 Flow charts were used during the planning stages of developing this site to set out the process plan for the JavaScript functions. I found that it was easier to use flow charts, rather than a list of steps, for designing the stages of the game given the conditional nature of this means.
 
@@ -64,7 +64,7 @@ After the site was developed in line with the initial flow chart planning, as se
 - CSS3
 - JavaScript
 
-### Header (including Navigation)
+### Header including Navigation
 
 The header includes the logo text to share the name of the game, and an icon of two dice has been used to give the user an idea of how to play the game. 
 
@@ -85,7 +85,7 @@ I think the design provided keeps the site very simple and is very intuitive for
 
 ![Game Area](assets/readme-images/game-area.jpg)
 
-### Pop-up Messages (Game Won, Game Bust, and Alerts)
+### Pop-up Messages
 
 After feedback from my mentor, I was advised against relying on alerts() as part of the operation of the game as these may not appear, or can be turned off, dependant on the players browser settings. As such, the following messages now appear to inform the play that they have won, gone bust, or have selected an incorrect number.
 
@@ -102,7 +102,7 @@ After feedback from my mentor, I was advised against relying on alerts() as part
 ![Alert Message 1](assets/readme-images/number-block-less-alert.jpg)
 ![Alert Message 2](assets/readme-images/another-number-alert.jpg)
 
-#### How to Play?
+#### How to Play
 
 Although the game is simple, I thought it would provide benefit to the player to include the rules, given this is not a familiar game to play. These are located under the game board, or a shortcut to them is available in the sites header.
 
@@ -206,10 +206,10 @@ I have continued to enjoy the Code Institute course, and I am looking forward to
 
 I have used various sites to support me to develop this site, of which are detailed below:
 
-	- Add event listener to each button within a class - https://bobbyhadz.com/blog/javascript-add-event-listener-to-all-elements-with-class
+  - Add event listener to each button within a class:https://bobbyhadz.com/blog/javascript-add-event-listener-to-all-elements-with-class
 	- Removing event listeners: https://bobbyhadz.com/blog/javascript-remove-all-event-listeners-from-element
-  - Refreshing the webpage - https://www.w3schools.com/jsref/met_loc_reload.asp
-  - Visibility - CSS - https://stackoverflow.com/questions/5113246/make-div-invisible-in-css-and-javascript
+  - Refreshing the webpage: https://www.w3schools.com/jsref/met_loc_reload.asp
+  - CSS visibility of divs: https://stackoverflow.com/questions/5113246/make-div-invisible-in-css-and-javascript
 
 Only one block of code has been copied for this site as detailed below:
 
