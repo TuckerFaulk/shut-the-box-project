@@ -171,7 +171,16 @@ button {
     background-color: red;
 }
 
-/* Message Board - Game Bust and Won */
+.close {
+    background-color: gray;
+    margin-top: 20px;
+}
+
+.close:hover {
+    background-color: red;
+}
+
+/* Message Board - Game Bust, Game Won and Alerts */
 
 .message-board {
     height: 200px;
@@ -195,6 +204,17 @@ button {
 }
 
 .game-won {
+    background-color: white;
+    border: solid 3px red;
+    font-size: large;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    padding: 20px;
+}
+
+.alert1, .alert2 {
     background-color: white;
     border: solid 3px red;
     font-size: large;
@@ -256,7 +276,7 @@ footer {
         font-size: 200%;
     }
 
-    .game-won {
+    .game-won, .alert2 {
         width: 80%;
     }
 
@@ -325,12 +345,12 @@ footer {
         top: 180px;
     }
 
-    .game-bust, .game-won {
+    .game-bust, .game-won, .alert1, .alert2 {
         font-size: small;
         padding: 5px;
     }
 
-    .try-again {
+    .try-again, .close {
         padding: 15px 20px;
         margin-top: 5px;
     }
@@ -360,7 +380,7 @@ footer {
         font-size: 75px;
     }
 
-    .game-bust {
+    .game-bust, .alert1 {
         width: 80%;
     }
 
