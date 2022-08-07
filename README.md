@@ -7,16 +7,19 @@ The object of the game is to roll numbers on the dice that exactly add up to the
 ![Am I Responsive Image](assets/readme-images/am-i-responsive.jpg)
 
 # Table of contents
-<!-- - [Design](#design)
+- [Design](#design)
+  - [Text and Background Color](#text-and-background-color)
+  - [Game Area Design](#game-area-design)
+  - [Game Process Planning (Flow Chart)](#game-process-planning-(Flow-Chart))
 - [Features](#features)
   - [Existing Features](#existing-features)
     - [Languages Used](#languages-used)
-    - [Navigation](#navigation)
-    - [Home Page Hero Image](#home-page-hero-image)
-    - [Home Page](#home-page)
+    - [Header (including Navigation)](#Header-(including-Navigation))
+    - [Game Area](#game-area)
+    - [Pop-up Messages (Game Won, Game Bust, and Alerts)](#pop-up-messages-(game-won,-game-bust,-and-alerts))
+    - [How to Play?](#how-to-play?)
     - [Footer](#footer)
-    - [Buddhism and Meditation](#buddhism-and-meditation)
-    - [Get in Touch](#get-in-touch)
+    - [Other Features](#other-features)
   - [Future Features](#future-features)
 - [Testing](#testing)
   - [Validator Testing](#validator-testing)
@@ -25,11 +28,11 @@ The object of the game is to roll numbers on the dice that exactly add up to the
 - [Deployment](#deployment)
 - [Credits](#credits)
   - [Content](#content)
-  - [Media](#media) -->
+  - [Media](#media)
 
 # Design
 
-**Text & Background Color**
+**Text and Background Color**
 
 I selected both the font style (Google Fonts: 'Mouse Memoirs' and 'Ubuntu') and background colors to keep the website simple. I wanted to keep the main background white but then use the colors of the Shut the Box board to ensure that it was the main central focus of the site. I decided to use grey for the header and the footer to provide contrast from the main sections.
 
@@ -41,15 +44,15 @@ The game area is the main section of the site where the game can be played. The 
 
 ![Wireframing](assets/readme-images/wireframing.jpg)
 
-After intially developing the game board area to exactly reflect the wireframing design, it was noted that by stacking the number blocks, dice and buttons, instead of having the dice and buttons next to each other, this significantly reduced on the changes required when adding the media queries and meant that the design remained consistent for the user across all screen sizes.
+After initially developing the game board area to exactly reflect the wireframing design, it was noted that by stacking the number blocks, dice and buttons, instead of having the dice and buttons next to each other, this significantly reduced on the changes required when adding the media queries and meant that the design remained consistent for the user across all screen sizes.
 
-**Game Process Planning - Flow Chart**
+**Game Process Planning (Flow Chart)**
 
 Flow charts were used during the planning stages of developing this site to set out the process plan for the JavaScript functions. I found that it was easier to use flow charts, rather than a list of steps, for designing the stages of the game given the conditional nature of this means.
 
 ![Flow Chart Process Plan](assets/readme-images/process-flowchart.jpg)
 
-After the site was developed inline with the inital flow chart planning, as seen above, after testing of the site, it was noted that further conditional checking was required to prevent game faults: details of these faults have been 
+After the site was developed in line with the initial flow chart planning, as seen above, after testing of the site, it was noted that further conditional checking was required to prevent game faults: details of these faults have been 
 
 # Features
 
@@ -65,7 +68,7 @@ After the site was developed inline with the inital flow chart planning, as seen
 
 The header includes the logo text to share the name of the game, and an icon of two dice has been used to give the user an idea of how to play the game. 
 
-Finally, although there is only a single page with the 'How to play?' game rules loacted under the game area, it was noted during testing that on screens sizes with a smaller height, it was not immediately evident that these rules were available. By adding the "How to play?" button to the header, this solved this problem and also provided the user which a shortcut to this section of the page.
+Finally, although there is only a single page with the 'How to play?' game rules located under the game area, it was noted during testing that on screens sizes with a smaller height, it was not immediately evident that these rules were available. By adding the "How to play?" button to the header, this solved this problem and also provided the user which a shortcut to this section of the page.
 
 ![Logo and Navigation Bar](assets/readme-images/header.jpg)
 
@@ -82,9 +85,9 @@ I think the design provided keeps the site very simple and is very intuitive for
 
 ![Game Area](assets/readme-images/game-area.jpg)
 
-### Pop-up messages (Game Won, Game Bust, and Alerts)
+### Pop-up Messages (Game Won, Game Bust, and Alerts)
 
-After feedback from my mentor, I was advised against relying on alerts() as part of the operation of the game as these may not appear, or can be turned of, dependant on the players browser settings. As such, the follwing messages now appear to inform the play that they have won, gone bust, or have selected an incorrect number.
+After feedback from my mentor, I was advised against relying on alerts() as part of the operation of the game as these may not appear, or can be turned off, dependant on the players browser settings. As such, the following messages now appear to inform the play that they have won, gone bust, or have selected an incorrect number.
 
 #### - Game Won
 
@@ -99,7 +102,7 @@ After feedback from my mentor, I was advised against relying on alerts() as part
 ![Alert Message 1](assets/readme-images/number-block-less-alert.jpg)
 ![Alert Message 2](assets/readme-images/another-number-alert.jpg)
 
-#### How to play?
+#### How to Play?
 
 Although the game is simple, I thought it would provide benefit to the player to include the rules, given this is not a familiar game to play. These are located under the game board, or a shortcut to them is available in the sites header.
 
@@ -132,21 +135,21 @@ Useful techniques used during the testing process:
 - Drawing function flow charts
 - Adding console.log()s into functions
 
-There were many bugs identified during the testing, development and from feedback of this site. These have been listed below:
+There were many bugs identified from the testing, development and feedback of this site. These have been listed below:
 
-<!-- 1. Event Listeners and removing event listeners -->
+1. It was noted very early in testing that event listeners had to be removed after a number block had been selected. Without removing the event listeners, it allow to player to continue to select number blocks regardless of the dice total.
 
-<!-- 2. Reset Game (Template Literal) -->
+2. When rolling the dice, there was occasion that the same numbers were displayed. This was initially confusing as to whether the roll button had been clicked or not. Changes were made so the roll button disappears after it has been clicked.
 
-<!-- 3. Roll exactly the same number. -->
+3. The game would not notify the user that they had bust if a combination of their remaining number blocks did not total to the dice total. The solution to this was to use some code which created a new array of all combinations of an array of numbers. The original code used concatenated all combinations of a list of letters. This was update to collate an array of the remaining number blocks and then to add (instead of concatenate) all combinations of these numbers.
 
-4. The game would not notify the user that they had bust if a combination of their remaining number blocks did not total to the dice total. The solution to this was to use some code which created a new array of all combinations of an array of numbers. The original code used concatenated all cominations of a list of letters. This was update to collate an array of the remaining number blocks and then to add (instead of concatenate) all combinations of these numbers.
+4. Feedback from family noted that they sometimes accidentally selected a number higher than the value of the dice which caused the game to bust. An message was included into the game to alert the player of this error and lets them select a new number.
 
-<!-- 5. If a user accidentally selected a number higher than the value of the dice... -->
+5. There was an issue very early in the development of the site where the "How to Play?" section covered the game area on smaller screens (see image below). The initial thought was that the above sections "position" or "display" settings were preventing the blocks from stacking, but it was finally found that as the game-area section height was detailed using "vh", this caused the bug. Changing this to pixels fixed this bug.
 
-<!-- 6. How to Play? Section covering the game area on smaller screens - block elements not stacking. The initial thought was that the above sections "position" or "display" setting was preventing the blocks from stacking. Solution: The game-area section height was detailed using "vh". Changing this to pixels fixed this bug. -->
+![How to Play? Error](assets/readme-images/how-to-play-error.jpg)
 
-7. Feedback from testing of friends and family noted that using two dice with both a value of one on the loading page was slightly confusing: as if the game had already started. The solution to this was to change the starting icons from a pair of dice to two questions marks.
+6. Feedback from testing of friends and family noted that using two dice with both a value of one on the loading page was slightly confusing: as if the game had already started. The solution to this was to change the starting icons from a pair of dice to two questions marks.
 
 ## Validator Testing
 
@@ -168,7 +171,7 @@ There were many bugs identified during the testing, development and from feedbac
 
 ## Unfixed Bugs
 
-<!-- There were no unfixed bugs identified during the testing of this site. -->
+There were no unfixed bugs identified during the testing of this site.
 
 ## Libraries and Programs Used
 
