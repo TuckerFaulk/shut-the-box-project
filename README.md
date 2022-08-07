@@ -1,6 +1,8 @@
 # Shut the Box | Dice Game! 
 
-<!-- My idea for this project was to develop a concept website for the Sub30s Buddhist Group which I regularly attend. The purpose of the website is to provide some general information on the group (including What we do?, When we meet?, Where we meet?), an introduction into Buddhism and Meditation, and an opportunity to get in touch to request further information. -->
+My idea for this project was to develop an online game of chance which players can enjoy: the game itself is a popular game played in Pub's in Suffolk.
+
+The object of the game is to roll numbers on the dice that exactly add up to the value that is required to click all of the number blocks, and finally shut the box.
 
 ![Am I Responsive Image](assets/readme-images/am-i-responsive.jpg)
 
@@ -35,7 +37,9 @@
 
 **Game Area Design**
 
-Based on the design of the Shut the Box board (see image).
+The game area is the main section of the site where the game can be played. The design of this area was based on the design of the Shut the Box board, as seen below.
+
+<!-- ![Shut the Box board](assets) -->
 
 - Wireframing. 
 
@@ -43,6 +47,9 @@ After intially developing the game board area to exactly reflect the wireframing
 
 **Game Process Planning - Flow Chart**
 
+<!-- Section intro -->
+
+<!-- ![Flow Chart Process Plan](assets) -->
 
 After the site was developed inline with the inital flow chart planning, as seen above, after testing of the site, it was noted that further conditional checking was required to prevent game faults: details of these faults have been 
 
@@ -64,7 +71,7 @@ Although there is only a single page with the 'How to play?' game rules loacted 
 
 ![Logo and Navigation Bar](assets/readme-images/header.jpg)
 
-### Landing Page (Game Area)
+### Game Area
 
 - Game Board
 - Number Blocks
@@ -73,7 +80,7 @@ Although there is only a single page with the 'How to play?' game rules loacted 
 
 <!-- A Hero Image is used on the Home Page (only) under the Header. The text over the Hero Image, 'Buddha - Dharma - Sangha', has been added to break up the image and has been included to improve the design. 'Buddha - Dharma - Sangha' are the Three Jewels of Buddhism and are an important part of the teachings.
 
-![Hero Image](assets/readme-images/hero-image.jpg) -->
+![Game Area](assets) -->
 
 ### Pop-up messages (Game Won, Game Bust, and Alerts)
 
@@ -89,49 +96,52 @@ Although there is only a single page with the 'How to play?' game rules loacted 
 
 The footer section features a note that this site is for educational purposes only and details the name of the creator.
 
-The note regarding this site being for educational purposes only has been included as I do not have the rights to some of the content and media used on the website. The content and media has been credited in this document.
+<!-- The note regarding this site being for educational purposes only has been included as I do not have the rights to some of the content and media used on the website. The content and media has been credited in this document. -->
 
 <!-- ![Footer](assets/readme-images/footer.jpg) -->
 
 ### Other Features
 
-- Favicon
-- Other ...
+- Favicon: A Font Awesome Icon of two dice has been used for the Favicon as a finishing touch to the site.
 
 ## Future Features
 
-- Highlighting
+- Highlighting of the numbers available to select
 - Animations (Dice, card flip and Won Screen)
 - Event listener for keyboard use of dice and numbers
 
 # Testing
 
-Testing of the website has been complete by myself and a few friends and family on various devices (Laptop, Tablet and Mobile). It is noted that all of the links, videos, and the contact form (including the input fields requiring information before submitting) functioned as expected.
+Testing of the website has been complete by myself and a few friends and family on various devices (Laptop, Tablet and Mobile). It is noted that the game and all of the pop-up messages (Game Won, Game Bust, and Alerts) functioned as expected.
 
-To ensure that the website worked on a different browser that what was used for the development (Google Chrome), testing also took place on Microsoft Edge.
+To ensure that the website worked on different browsers than what was used for the development (Google Chrome), testing also took place on Microsoft Edge, Firefox and Safari.
 
-- Event Listeners and removing event listeners
-- Reset Game (Template Literal)
+Useful techniques used during the testing process:
+- Writing pseudo code 
+- Drawing function flow charts
+- Adding console.log()s into functions
 
-- Roll exactly the same number.
+There were many bugs identified during the testing, development and from feedback of this site. These have been listed below:
 
-- The game would not notify the user that they had bust if a combination of their remaining number blocks did not total to the dice total.
+1. Event Listeners and removing event listeners
+
+2. Reset Game (Template Literal)
+
+3. Roll exactly the same number.
+
+4. The game would not notify the user that they had bust if a combination of their remaining number blocks did not total to the dice total.
 
 <!-- (Add image) -->
 
 The solution to this was to use some code which created a new array of all combinations of an array of numbers. The original code used concatenated all cominations of a list of letters. This was update to collate an array of the remaining number blocks and then to add (instead of concatenate) all combinations of these numbers.
 
-- If a user accidentally selected a number higher that the value of the dice...
+5. If a user accidentally selected a number higher than the value of the dice...
 
-Feedback from testing of friends and family noted that using two dice with both a value of one as the starting position was slightly confusing as if the game had already started. 
+6. How to Play? Section covering the game area on smaller screens - block elements not stacking. The initial thought was that the above sections "position" or "display" setting was preventing the blocks from stacking. Solution: The game-area section height was detailed using "vh". Changing this to pixels fixed this bug.
 
-- How to Play? Section covering the game area on smaller screens - block elements not stacking. The initial thought was that the above sections "position" or "display" setting was preventing the blocks from stacking. Solution: The game-area section height was detailed using "vh". Changing this to pixels fixed this bug.
+7. Comment on CSS Media Queries testing and the review of the game board design.
 
-Comment on CSS Media Queries testing.
-
-Useful techniques used during the testing process:
-- Writing pseudo code
-- console.log()s
+8. Feedback from testing of friends and family noted that using two dice with both a value of one as the starting position was slightly confusing as if the game had already started. The solution to this was to change the starting icons from a pair of dice to two questions marks.
 
 ## Validator Testing
 
@@ -143,27 +153,23 @@ Useful techniques used during the testing process:
 
 ![W3C CSS Validator](assets/readme-images/css-checker.jpg)
 
-- JSHint: ???:
+- JSHint: Only one warnings was returned using (JSHint) with "New JavaScript features (ES6)" activated in the configuration, although this is not an issue. It is noted that this was a deliberate use of the bitwise operator. 
 
-![W3C JS](asset)
+![JSHint Checker](asset)
 
 - WebAim Contrast Checker: ???:
 
-![W3C JS](asset)
+![WebAim Contrast Checker](asset)
 
 - Lighthouse (Accessibility Audit): The page achieved a great accessibility performance:
 
 ![Lighthouse Accessibility Audit](assets/readme-images/lighthouse-checker.jpg)
 
-NB: Although the above screenshots only shows the results of the home page, no errors were found on the other pages of the site and they also achieved great accessibility performance.
+<!-- NB: Although the above screenshots only shows the results of the home page, no errors were found on the other pages of the site and they also achieved great accessibility performance. -->
 
 ## Unfixed Bugs
 
-<!-- I have found that the spacing below some of the text sections of the 'Buddhism & Meditation' page are quite large. I think that due to the way that I have designed the page by using similar classes for the text tiles to reduce on CSS coding, I had not anticipated that where there are larger blocks of text, that these sections needed to be larger for smaller screens.
-
-I do not think that this takes too much away from the design of the website, and I am happy with how it is, but I do plan to spend some more time on website design in the the future, so I can better plan before a project to avoid this.
-
-It is also noted that the 'Performance' measure from the Lighthouse Accessibility Audit was relatively low (63/100). This is something which I am going to look into so I can improve on it for the future. -->
+There were no unfixed bugs identified during the testing of this site.
 
 ## Libraries and Programs Used
 

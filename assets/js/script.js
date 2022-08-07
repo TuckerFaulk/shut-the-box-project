@@ -135,7 +135,7 @@ function checkNumberBlockArray() {
     }
 
     // Original code source: https://codereview.stackexchange.com/questions/7001/generating-all-combinations-of-an-array
-    
+
     combi = [];
     var temp= 0;
     var numLen = Math.pow(2, numbers.length);
@@ -285,6 +285,6 @@ function gameBust() {
  */
 function resetGame() {
 
-    location.reload()
+    location.reload();
 
 }

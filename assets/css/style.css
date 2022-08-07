@@ -51,7 +51,7 @@ h2 {
 
 #htplay {
     text-decoration: none;
-    color: white;
+    color: black;
     text-transform: uppercase;
     background-color: red;
     padding: 10px;
@@ -140,7 +140,7 @@ h2 {
 button {
     padding: 15px 50px;
     font-weight: bold;
-    color: white;
+    color: black;
     border-radius: 5px;
 }
 
