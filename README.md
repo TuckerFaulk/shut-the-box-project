@@ -7,7 +7,7 @@ The object of the game is to roll numbers on the dice that exactly add up to the
 ![Am I Responsive Image](assets/readme-images/am-i-responsive.jpg)
 
 # Table of contents
-- [Design](#design)
+<!-- - [Design](#design)
 - [Features](#features)
   - [Existing Features](#existing-features)
     - [Languages Used](#languages-used)
@@ -25,7 +25,7 @@ The object of the game is to roll numbers on the dice that exactly add up to the
 - [Deployment](#deployment)
 - [Credits](#credits)
   - [Content](#content)
-  - [Media](#media)
+  - [Media](#media) -->
 
 # Design
 
@@ -41,7 +41,7 @@ The game area is the main section of the site where the game can be played. The 
 
 <!-- ![Shut the Box board](assets) -->
 
-- Wireframing. 
+<!-- - Wireframing.  -->
 
 After intially developing the game board area to exactly reflect the wireframing design, it was noted that by stacking the number blocks, dice and buttons, instead of having the dice and buttons next to each other, this significantly reduced on the changes required when adding the media queries and meant that the design remained consistent for the user across all screen sizes.
 
@@ -96,8 +96,6 @@ Although there is only a single page with the 'How to play?' game rules loacted 
 
 The footer section features a note that this site is for educational purposes only and details the name of the creator.
 
-<!-- The note regarding this site being for educational purposes only has been included as I do not have the rights to some of the content and media used on the website. The content and media has been credited in this document. -->
-
 <!-- ![Footer](assets/readme-images/footer.jpg) -->
 
 ### Other Features
@@ -106,9 +104,9 @@ The footer section features a note that this site is for educational purposes on
 
 ## Future Features
 
-- Highlighting of the numbers available to select
+<!-- - Highlighting of the numbers available to select
 - Animations (Dice, card flip and Won Screen)
-- Event listener for keyboard use of dice and numbers
+- Event listener for keyboard use of dice and numbers -->
 
 # Testing
 
@@ -123,11 +121,11 @@ Useful techniques used during the testing process:
 
 There were many bugs identified during the testing, development and from feedback of this site. These have been listed below:
 
-1. Event Listeners and removing event listeners
+<!-- 1. Event Listeners and removing event listeners -->
 
-2. Reset Game (Template Literal)
+<!-- 2. Reset Game (Template Literal) -->
 
-3. Roll exactly the same number.
+<!-- 3. Roll exactly the same number. -->
 
 4. The game would not notify the user that they had bust if a combination of their remaining number blocks did not total to the dice total.
 
@@ -135,37 +133,31 @@ There were many bugs identified during the testing, development and from feedbac
 
 The solution to this was to use some code which created a new array of all combinations of an array of numbers. The original code used concatenated all cominations of a list of letters. This was update to collate an array of the remaining number blocks and then to add (instead of concatenate) all combinations of these numbers.
 
-5. If a user accidentally selected a number higher than the value of the dice...
+<!-- 5. If a user accidentally selected a number higher than the value of the dice... -->
 
-6. How to Play? Section covering the game area on smaller screens - block elements not stacking. The initial thought was that the above sections "position" or "display" setting was preventing the blocks from stacking. Solution: The game-area section height was detailed using "vh". Changing this to pixels fixed this bug.
+<!-- 6. How to Play? Section covering the game area on smaller screens - block elements not stacking. The initial thought was that the above sections "position" or "display" setting was preventing the blocks from stacking. Solution: The game-area section height was detailed using "vh". Changing this to pixels fixed this bug. -->
 
-7. Comment on CSS Media Queries testing and the review of the game board design.
+<!-- 7. Comment on CSS Media Queries testing and the review of the game board design. -->
 
-8. Feedback from testing of friends and family noted that using two dice with both a value of one as the starting position was slightly confusing as if the game had already started. The solution to this was to change the starting icons from a pair of dice to two questions marks.
+8. Feedback from testing of friends and family noted that using two dice with both a value of one on the loading page was slightly confusing: as if the game had already started. The solution to this was to change the starting icons from a pair of dice to two questions marks.
 
 ## Validator Testing
 
-- HTML: No errors were returned when passing through the official W3C validator:
+- HTML: No errors were returned when passing through the official W3C validator.
 
 ![W3C HTML Validator](assets/readme-images/html-checker.jpg)
 
-- CSS: No errors were found when passing through the official (Jigsaw) validator:
+- CSS: No errors were found when passing through the official (Jigsaw) validator.
 
 ![W3C CSS Validator](assets/readme-images/css-checker.jpg)
 
 - JSHint: Only one warnings was returned using (JSHint) with "New JavaScript features (ES6)" activated in the configuration, although this is not an issue. It is noted that this was a deliberate use of the bitwise operator. 
 
-![JSHint Checker](asset)
+![JSHint Checker](assets/readme-images/jshint-checker.jpg)
 
-- WebAim Contrast Checker: ???:
-
-![WebAim Contrast Checker](asset)
-
-- Lighthouse (Accessibility Audit): The page achieved a great accessibility performance:
+- Lighthouse (Accessibility Audit): The page achieved a great accessibility performance.
 
 ![Lighthouse Accessibility Audit](assets/readme-images/lighthouse-checker.jpg)
-
-<!-- NB: Although the above screenshots only shows the results of the home page, no errors were found on the other pages of the site and they also achieved great accessibility performance. -->
 
 ## Unfixed Bugs
 
@@ -179,7 +171,7 @@ There were no unfixed bugs identified during the testing of this site.
 <!-- - Google Chrome Dev Tools: To aid the initial styling for media queries and testing at various screen sizes -->
 <!-- - Microsoft Edge, Mozilla Firefox, Safari: Site testing on alternative browsers -->
 - Microsoft OneNote: Planning notes for the project
-<!-- - Font Awesome: Social media icons -->
+- Font Awesome: Icons used for Dice, Logo, and Favicon
 - Gauger.io/fonticon/: Font Awesome Favicon Generator
 - JavaScript coding tutor:
 - Microsoft Whiteboard: Wireframing design and flow chart for game process planning
@@ -198,20 +190,14 @@ The live link for the site can be found here - https://tuckerfaulk.github.io/shu
 
 # Credits
 
-<!-- I have really enjoyed the Code Institute course up till now, and I am looking forward to the next units of the course. I wanted to thank the Slack Community for their support learning the content and my Mentor Martina for her guidance with this project and assurances that creating a website is not as scary as I initially thought.
-
-As a starting point I looked at the Coders Coffee and Love Running projects.
-
-- From the Love Running Project, I took inspiration for the header, hero banner, footer and form.
-- From the Coders Coffee Project, I took inspiration from in my 'What we do?' section. -->
+<!-- I have really enjoyed the Code Institute course up till now, and I am looking forward to the next units of the course. I wanted to thank the Slack Community for their support learning the content and my Mentor Martina for her guidance with this project and assurances that creating a website is not as scary as I initially thought. -->
 
 ## Content
 
-
+Code used in the "checkNumberBlockArray()" JS Function (referenced in JS file) -- original code source: https://codereview.stackexchange.com/questions/7001/generating-all-combinations-of-an-array
 
 ## Media
 
 Images:
 
-
-
+- Shut the Box Board (Used in the READ.me file). Image source: https://www.gamesforyoungminds.com/blog/2017/11/30/shut-the-box

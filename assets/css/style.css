@@ -16,7 +16,7 @@ body {
 
 .heading {
     height: 75px;
-    width: 100vw;
+    width: 100%;
     background-color: gray;
 }
 
