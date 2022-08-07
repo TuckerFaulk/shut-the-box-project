@@ -153,8 +153,6 @@ function checkNumberBlockArray() {
         }
     }
 
-    console.log(combi);
-
 }
 
 /**
@@ -205,13 +203,9 @@ function subtractNumberBlock(event) {
     let remainingBlocksAvailable = combi.includes(newDiceTotal);
     let alert2 = document.getElementsByClassName("alert2")[0];
 
-    console.log(newDiceTotal);
-
     if (remainingBlocksAvailable) {
         checkGame();
-        console.log("remaining block available.");
     } else {
-        console.log("remaining block not available.");
         numberBlock[numberBlockSelected].classList.remove('invisible');
         numberBlock[numberBlockSelected].innerHTML = ++numberBlockSelected;
 
