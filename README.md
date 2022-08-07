@@ -31,25 +31,23 @@ The object of the game is to roll numbers on the dice that exactly add up to the
 
 **Text & Background Color**
 
-<!-- Google Fonts: Font-family 'Mouse Memoirs' and 'Ubuntu' -->
-
-<!-- I selected both the text and background colors to keep the website simple. I wanted to keep the main background white and introduce color into the website through the images used. I decided to use a light grey for the header and the footer to provide some contrast from the main sections. -->
+I selected both the font style (Google Fonts: 'Mouse Memoirs' and 'Ubuntu') and background colors to keep the website simple. I wanted to keep the main background white but then use the colors of the Shut the Box board to ensure that it was the main central focus of the site. I decided to use grey for the header and the footer to provide contrast from the main sections.
 
 **Game Area Design**
 
 The game area is the main section of the site where the game can be played. The design of this area was based on the design of the Shut the Box board, as seen below.
 
-<!-- ![Shut the Box board](assets) -->
+![Shut the Box board](assets/readme-images/shut-the-box-board.jpeg)
 
-<!-- - Wireframing.  -->
+![Wireframing](assets/readme-images/wireframing.jpg)
 
 After intially developing the game board area to exactly reflect the wireframing design, it was noted that by stacking the number blocks, dice and buttons, instead of having the dice and buttons next to each other, this significantly reduced on the changes required when adding the media queries and meant that the design remained consistent for the user across all screen sizes.
 
 **Game Process Planning - Flow Chart**
 
-<!-- Section intro -->
+Flow charts were used during the planning stages of developing this site to set out the process plan for the JavaScript functions. I found that it was easier to use flow charts, rather than a list of steps, for designing the stages of the game given the conditional nature of this means.
 
-<!-- ![Flow Chart Process Plan](assets) -->
+![Flow Chart Process Plan](assets/readme-images/process-flowchart.jpg)
 
 After the site was developed inline with the inital flow chart planning, as seen above, after testing of the site, it was noted that further conditional checking was required to prevent game faults: details of these faults have been 
 
@@ -65,38 +63,53 @@ After the site was developed inline with the inital flow chart planning, as seen
 
 ### Header (including Navigation)
 
-<!-- Logo text and icon... -->
+The header includes the logo text to share the name of the game, and an icon of two dice has been used to give the user an idea of how to play the game. 
 
-Although there is only a single page with the 'How to play?' game rules loacted under the game area, it was noted during testing that on screens sizes with a smaller height, it was not immediately evident that these rules were available. By adding this button to the header, this solved this problem and also provided the user which a shortcut to this section of the page.
+Finally, although there is only a single page with the 'How to play?' game rules loacted under the game area, it was noted during testing that on screens sizes with a smaller height, it was not immediately evident that these rules were available. By adding the "How to play?" button to the header, this solved this problem and also provided the user which a shortcut to this section of the page.
 
 ![Logo and Navigation Bar](assets/readme-images/header.jpg)
 
 ### Game Area
 
-- Game Board
-- Number Blocks
-- Dice Area (2 x Dice)
-- Roll and Reset Buttons
+The game area is the main focus of the site which is why this is front and center when loading the site. The game board has been broken down into four sections:
 
-<!-- A Hero Image is used on the Home Page (only) under the Header. The text over the Hero Image, 'Buddha - Dharma - Sangha', has been added to break up the image and has been included to improve the design. 'Buddha - Dharma - Sangha' are the Three Jewels of Buddhism and are an important part of the teachings.
+  1. Game Board
+  2. Number Blocks (Numbers 1 - 9)
+  3. Dice Area (2 x Dice)
+  4. Roll and Reset Buttons
 
-![Game Area](assets) -->
+I think the design provided keeps the site very simple and is very intuitive for the player to use.
+
+![Game Area](assets/readme-images/game-area.jpg)
 
 ### Pop-up messages (Game Won, Game Bust, and Alerts)
 
-<!-- This page provides all the information a user will need about the group. Each of the questions a user may have about the group have been broken into sections to make it easy to read. This section has been kept simple and to the point. -->
+After feedback from my mentor, I was advised against relying on alerts() as part of the operation of the game as these may not appear, or can be turned of, dependant on the players browser settings. As such, the follwing messages now appear to inform the play that they have won, gone bust, or have selected an incorrect number.
+
+#### - Game Won
+
+![Game Won Message](assets/readme-images/game-won.jpg)
+
+#### - Game Bust
+
+![Game Bust Message](assets/readme-images/game-bust.jpg)
+
+#### - Alert Messages
+
+![Alert Message 1](assets/readme-images/number-block-less-alert.jpg)
+![Alert Message 2](assets/readme-images/another-number-alert.jpg)
 
 #### How to play?
 
-<!-- This section has been placed first to provide some context about the page and what the group is about. -->
+Although the game is simple, I thought it would provide benefit to the player to include the rules, given this is not a familiar game to play. These are located under the game board, or a shortcut to them is available in the sites header.
 
-<!-- ![Who we are?](assets/readme-images/who-we-are-section.jpg) -->
+![How to play?](assets/readme-images/how-to-play.jpg)
 
 ### Footer
 
 The footer section features a note that this site is for educational purposes only and details the name of the creator.
 
-<!-- ![Footer](assets/readme-images/footer.jpg) -->
+![Footer](assets/readme-images/footer.jpg)
 
 ### Other Features
 
@@ -104,9 +117,9 @@ The footer section features a note that this site is for educational purposes on
 
 ## Future Features
 
-<!-- - Highlighting of the numbers available to select
-- Animations (Dice, card flip and Won Screen)
-- Event listener for keyboard use of dice and numbers -->
+- Numbers which can be selected based on the total dice value will be highlighted
+- Animations to be added to the dice roll and the game won message
+- Event listener to be added for keyboard use for selecting number blocks
 
 # Testing
 
@@ -127,19 +140,13 @@ There were many bugs identified during the testing, development and from feedbac
 
 <!-- 3. Roll exactly the same number. -->
 
-4. The game would not notify the user that they had bust if a combination of their remaining number blocks did not total to the dice total.
-
-<!-- (Add image) -->
-
-The solution to this was to use some code which created a new array of all combinations of an array of numbers. The original code used concatenated all cominations of a list of letters. This was update to collate an array of the remaining number blocks and then to add (instead of concatenate) all combinations of these numbers.
+4. The game would not notify the user that they had bust if a combination of their remaining number blocks did not total to the dice total. The solution to this was to use some code which created a new array of all combinations of an array of numbers. The original code used concatenated all cominations of a list of letters. This was update to collate an array of the remaining number blocks and then to add (instead of concatenate) all combinations of these numbers.
 
 <!-- 5. If a user accidentally selected a number higher than the value of the dice... -->
 
 <!-- 6. How to Play? Section covering the game area on smaller screens - block elements not stacking. The initial thought was that the above sections "position" or "display" setting was preventing the blocks from stacking. Solution: The game-area section height was detailed using "vh". Changing this to pixels fixed this bug. -->
 
-<!-- 7. Comment on CSS Media Queries testing and the review of the game board design. -->
-
-8. Feedback from testing of friends and family noted that using two dice with both a value of one on the loading page was slightly confusing: as if the game had already started. The solution to this was to change the starting icons from a pair of dice to two questions marks.
+7. Feedback from testing of friends and family noted that using two dice with both a value of one on the loading page was slightly confusing: as if the game had already started. The solution to this was to change the starting icons from a pair of dice to two questions marks.
 
 ## Validator Testing
 
@@ -161,15 +168,15 @@ The solution to this was to use some code which created a new array of all combi
 
 ## Unfixed Bugs
 
-There were no unfixed bugs identified during the testing of this site.
+<!-- There were no unfixed bugs identified during the testing of this site. -->
 
 ## Libraries and Programs Used
 
 - Github: Store Repository
 - Gitpod: Create the html and css files
 - Google Fonts: Font-family 'Mouse Memoirs' and 'Ubuntu'
-<!-- - Google Chrome Dev Tools: To aid the initial styling for media queries and testing at various screen sizes -->
-<!-- - Microsoft Edge, Mozilla Firefox, Safari: Site testing on alternative browsers -->
+- Google Chrome Dev Tools: To aid the styling for media queries and testing at various screen sizes; Console for JavaScript testing.
+- Microsoft Edge, Mozilla Firefox, Safari: Site testing on alternative browsers
 - Microsoft OneNote: Planning notes for the project
 - Font Awesome: Icons used for Dice, Logo, and Favicon
 - Gauger.io/fonticon/: Font Awesome Favicon Generator
@@ -190,14 +197,23 @@ The live link for the site can be found here - https://tuckerfaulk.github.io/shu
 
 # Credits
 
-<!-- I have really enjoyed the Code Institute course up till now, and I am looking forward to the next units of the course. I wanted to thank the Slack Community for their support learning the content and my Mentor Martina for her guidance with this project and assurances that creating a website is not as scary as I initially thought. -->
+I have continued to enjoy the Code Institute course, and I am looking forward to the next units. I wanted to thank the Slack Community for their support whilst I was learning the content (needed more support than the first unit) and my Mentor Martina for her guidance with this project. And finally my girlfriend and family for their help with testing and review of the site.
 
 ## Content
 
-Code used in the "checkNumberBlockArray()" JS Function (referenced in JS file) -- original code source: https://codereview.stackexchange.com/questions/7001/generating-all-combinations-of-an-array
+I have used various sites to support me to develop this site, of which are detailed below:
+
+	- Add event listener to each button within a class - https://bobbyhadz.com/blog/javascript-add-event-listener-to-all-elements-with-class
+	- Removing event listeners: https://bobbyhadz.com/blog/javascript-remove-all-event-listeners-from-element
+  - Refreshing the webpage - https://www.w3schools.com/jsref/met_loc_reload.asp
+  - Visibility - CSS - https://stackoverflow.com/questions/5113246/make-div-invisible-in-css-and-javascript
+
+Only one block of code has been copied for this site as detailed below:
+
+  - Code used in the "checkNumberBlockArray()" JS Function (referenced in JS file) -- original code source: https://codereview.stackexchange.com/questions/7001/generating-all-combinations-of-an-array
 
 ## Media
 
 Images:
 
-- Shut the Box Board (Used in the READ.me file). Image source: https://www.gamesforyoungminds.com/blog/2017/11/30/shut-the-box
+- Shut the Box Board (Used in this READ.me file). Image source: https://www.gamesforyoungminds.com/blog/2017/11/30/shut-the-box

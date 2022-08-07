@@ -136,8 +136,8 @@ function checkNumberBlockArray() {
 
     // Original code source: https://codereview.stackexchange.com/questions/7001/generating-all-combinations-of-an-array
 
-    combi = [];
-    var temp= 0;
+    combi = [0];
+    var temp = 0;
     var numLen = Math.pow(2, numbers.length);
 	
     for (var i = 0; i < numLen ; i++){
@@ -152,6 +152,9 @@ function checkNumberBlockArray() {
             combi.push(temp);
         }
     }
+
+    console.log(combi);
+
 }
 
 /**
@@ -198,13 +201,17 @@ function subtractNumberBlock(event) {
     // If not, the game asks for another number to be selected
     checkNumberBlockArray();
 
-    let diceTotalString = newDiceTotal.toString();
-    let remainingBlocksAvailable = numbers.includes(diceTotalString);
+    // let diceTotalString = newDiceTotal.toString();
+    let remainingBlocksAvailable = combi.includes(newDiceTotal);
     let alert2 = document.getElementsByClassName("alert2")[0];
+
+    console.log(newDiceTotal);
 
     if (remainingBlocksAvailable) {
         checkGame();
+        console.log("remaining block available.");
     } else {
+        console.log("remaining block not available.");
         numberBlock[numberBlockSelected].classList.remove('invisible');
         numberBlock[numberBlockSelected].innerHTML = ++numberBlockSelected;
 
